@@ -1,5 +1,7 @@
 Home::Application.routes.draw do
 
+  resources :comentarios
+
   devise_for :users
 
   resources :users

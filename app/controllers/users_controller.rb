@@ -50,6 +50,9 @@ class UsersController < ApplicationController
     @residencial = Residencial.find(params[:residencial_id])
     @apartamento = Apartamento.find(params[:apartamento_id])
     @user = @apartamento.users.build(params[:user])
+
+    role = Role.find_by_nome("condomino")
+    @user.roles << role
     #@user = User.new(params[:residencial])
 
     respond_to do |format|

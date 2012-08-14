@@ -1,0 +1,29 @@
+<%- model_class = Comentario -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:titulo) %>:</strong></dt>
+  <dd><%= @comentario.titulo %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:conteudo) %>:</strong></dt>
+  <dd><%= @comentario.conteudo %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:comentavel_id) %>:</strong></dt>
+  <dd><%= @comentario.comentavel_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:comentavel_type) %>:</strong></dt>
+  <dd><%= @comentario.comentavel_type %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
+  <dd><%= @comentario.user_id %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              comentarios_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_comentario_path(@comentario), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              comentario_path(@comentario),
+              :method => 'delete',
+              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+              :class => 'btn btn-danger' %>
+</div>

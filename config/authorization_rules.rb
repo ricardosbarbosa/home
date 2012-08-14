@@ -12,7 +12,10 @@ authorization do
 
   role :condomino do
     includes :guest
-
+    has_permission_on [:comentarios], :to => [:create]
+    has_permission_on :comentarios, :to => [:destroy] do
+      if_attribute :user => is { user }
+    end
   end
 
   role :sindico do

@@ -16,6 +16,8 @@ class User < ActiveRecord::Base
 
   belongs_to :apartamento
 
+  has_many :comentarios, :dependent => :destroy
+
   def role_symbols
     roles.map do |role|
       role.nome.underscore.to_sym

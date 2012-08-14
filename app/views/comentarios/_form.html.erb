@@ -1,0 +1,38 @@
+<%= form_for @comentario, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :titulo, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :titulo, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :conteudo, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :conteudo, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :comentavel_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :comentavel_id, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :comentavel_type, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :comentavel_type, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :user_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :user_id, :class => 'number_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                comentarios_path, :class => 'btn' %>
+  </div>
+<% end %>

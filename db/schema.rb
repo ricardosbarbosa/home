@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120814052654) do
+ActiveRecord::Schema.define(:version => 20120814133651) do
 
   create_table "apartamentos", :force => true do |t|
     t.string   "numero"
@@ -31,6 +31,19 @@ ActiveRecord::Schema.define(:version => 20120814052654) do
     t.integer "user_id"
     t.integer "role_id"
   end
+
+  create_table "comentarios", :force => true do |t|
+    t.string   "titulo"
+    t.text     "conteudo"
+    t.integer  "comentavel_id"
+    t.string   "comentavel_type"
+    t.integer  "user_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "comentarios", ["comentavel_id"], :name => "index_comentarios_on_comentavel_id"
+  add_index "comentarios", ["comentavel_type"], :name => "index_comentarios_on_comentavel_type"
 
   create_table "residenciais", :force => true do |t|
     t.string   "nome"
