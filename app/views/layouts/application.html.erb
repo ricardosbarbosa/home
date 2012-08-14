@@ -44,7 +44,16 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Home</a>
+          <a class="brand" href="#">
+            <%  if user_signed_in? %>
+                    <%  if current_user.apartamento  %>
+                        <%= current_user.apartamento.residencial.nome  %> - <%= current_user.apartamento.numero %>
+                      <% else %>
+                Residencial Online
+                    <% end %>
+
+                <% end %>
+                    </a>
           <div class="container nav-collapse">
             <%  if user_signed_in? %>
                 <ul class="nav">
@@ -66,7 +75,7 @@
     <div class="container">
       <div class="content">
         <div class="row">
-           <div class=<%  if user_signed_in? %>"span9"<% else %>"span12"<% end %>>
+           <div class=<%  if user_signed_in? %>"span9"<% else %>"span12"<% end %> >
              <% flash.each do |name, msg| %>
                  <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
                    <a class="close" data-dismiss="alert">&#215;</a>
