@@ -3,7 +3,7 @@ class Apartamento < ActiveRecord::Base
 
   belongs_to :residencial
 
-  has_many :users
+  has_many :users, :dependent => :destroy
 
   validates_presence_of :numero
   validates_presence_of :residencial_id
