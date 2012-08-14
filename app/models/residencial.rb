@@ -4,4 +4,5 @@ class Residencial < ActiveRecord::Base
   validates_presence_of :nome
 
   has_many :apartamentos, :dependent => :destroy
+  has_many :areas, :dependent => :destroy
 end

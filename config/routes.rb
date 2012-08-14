@@ -1,14 +1,14 @@
 Home::Application.routes.draw do
+
   devise_for :users
 
   resources :users
-
-  #resources :apartamentos
 
   resources :residenciais do
     resources :apartamentos do
        resources :users
     end
+    resources :areas
   end
 
   get "welcome/index"

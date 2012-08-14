@@ -3,6 +3,7 @@ authorization do
     has_permission_on [:residenciais], :to => [:index, :show, :new, :create, :edit, :update, :destroy]
     has_permission_on [:apartamentos], :to => [:index, :show, :new, :create, :edit, :update, :destroy]
     has_permission_on [:users], :to => [:index, :show, :new, :create, :edit, :update, :destroy]
+    has_permission_on [:areas], :to => [:index, :show, :new, :create, :edit, :update, :destroy]
   end
 
   role :guest do
@@ -17,6 +18,5 @@ authorization do
   role :sindico do
     includes :guest
     includes :condomino
-
   end
 end
