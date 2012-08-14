@@ -1,0 +1,33 @@
+<%= form_for [@residencial, @apartamento], :html => { :class => 'form-horizontal' } do |f| %>
+    <% if @apartamento.errors.any? %>
+        <div id="error_explanation" class="alert alert-error">
+          <h2><%= pluralize(@apartamento.errors.count, "error") %> prohibited this pessoa from being saved:</h2>
+
+          <ul>
+            <% @apartamento.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+
+    <div class="control-group">
+    <%= f.label :numero, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :numero, :class => 'text_field' %>
+    </div>
+  </div>
+  <!--<div class="control-group">-->
+    <!--<%= f.label :residencial_id, :class => 'control-label' %>-->
+    <!--<div class="controls">-->
+      <!--<%= f.number_field :residencial_id, :class => 'number_field' %>-->
+    <!--</div>-->
+  <!--</div>-->
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                residencial_apartamentos_path, :class => 'btn' %>
+  </div>
+<% end %>
