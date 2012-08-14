@@ -8,7 +8,7 @@
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:nome) %></th>
       <th><%= model_class.human_attribute_name(:residencial_id) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -18,7 +18,7 @@
         <td><%= link_to area.id, residencial_area_path(area.residencial, area) %></td>
         <td><%= area.nome %></td>
         <td><%= area.residencial_id %></td>
-        <td><%=l area.created_at %></td>
+
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_residencial_area_path(area.residencial, area), :class => 'btn btn-mini' %>
