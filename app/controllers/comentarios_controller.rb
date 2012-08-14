@@ -9,8 +9,6 @@ class ComentariosController < ApplicationController
       .where(:residenciais => {:id => residencial.id}).order(:created_at)
     #@comentarios = Comentario.where(:user_id => [residencial.apartamentos.each do |a| a.users] )
 
-
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @comentarios }
@@ -56,7 +54,8 @@ class ComentariosController < ApplicationController
         format.html { redirect_to root_path, notice: 'Comentario was successfully created.' }
         format.json { render json: @comentario, status: :created, location: @comentario }
       else
-        format.html { render action: "new" }
+        #format.html { render action: "new" }
+        format.html { redirect_to root_path }
         format.json { render json: @comentario.errors, status: :unprocessable_entity }
       end
     end

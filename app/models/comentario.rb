@@ -5,4 +5,9 @@ class Comentario < ActiveRecord::Base
   belongs_to :comentavel, :polymorphic => true
 
   has_many :comentarios, :as => :comentavel, :dependent => :destroy
+
+  validates_presence_of :conteudo
+  #validates_presence_of :titulo
+
+
 end
