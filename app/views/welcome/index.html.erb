@@ -13,6 +13,8 @@
       <%= f.submit "mensagem", :class => 'btn btn-primary' %>
     </div>
 <% end %>
+<% else %>
+  <br/>
 <% end %>
 
 <%  if user_signed_in? and current_user.apartamento %>
