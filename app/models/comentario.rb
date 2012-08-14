@@ -1,5 +1,5 @@
 class Comentario < ActiveRecord::Base
-  attr_accessible :comentavel_id, :comentavel_type, :conteudo, :titulo, :user_id
+  attr_accessible :comentavel_id, :comentavel_type, :conteudo, :titulo, :user_id, :alerta
 
   belongs_to :user
   belongs_to :comentavel, :polymorphic => true

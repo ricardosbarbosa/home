@@ -11,6 +11,8 @@
         <%= f.text_area :conteudo, :class => 'text_area textarea_comment', :rows => 3  %>
       </div>
       <%= f.submit "mensagem", :class => 'btn btn-primary' %>
+      <%= f.check_box  :alerta %> Alerta
+
     </div>
 <% end %>
 <% else %>
@@ -25,7 +27,7 @@
     <div class="span1">
       <%= image_tag "icon-chat.png", :width => "60px", :height => "60px" %>
     </div>
-    <div class="span11 alert">
+    <div class="span11 alert <% if comentario.alerta %>alert-error <% end %>">
         <p>
           <b><%= comentario.titulo %> </b><%= comentario.conteudo %>
           <%= time_ago_in_words(comentario.created_at) %>
