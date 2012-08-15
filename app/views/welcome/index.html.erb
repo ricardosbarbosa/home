@@ -20,6 +20,8 @@
 
     <div class="form-actions">
       <div class="controls">
+        <%= image_tag "profile_m.gif", :size => "80x80" unless current_user.photo_file_name %>
+        <%= image_tag current_user.photo.url(:small) , :size => "70x70" if current_user.photo_file_name %>
         <%= f.text_area :conteudo, :class => 'text_area textarea_comment', :rows => 3  %>
       </div>
       <%= f.submit "mensagem", :class => 'btn btn-primary' %>
@@ -48,8 +50,12 @@
       <% end %>
     </div>
     <div class="span11 alert <% if comentario.alerta %>alert-error <% end %>">
-        <p>
-          <b><%= comentario.titulo %> </b><%= comentario.conteudo %>
+
+      <p>
+        <%= image_tag "profile_m.gif", :size => "30x30" unless comentario.user.photo_file_name %>
+        <%= image_tag comentario.user.photo.url(:small) , :size => "30x30" if comentario.user.photo_file_name %>
+
+        <b><%= comentario.titulo %> </b><%= comentario.conteudo %>
           <%= time_ago_in_words(comentario.created_at) %>
 
             <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
@@ -60,7 +66,11 @@
 
         </p>
       <% comentario.comentarios.each do |c| %>
-          <p><b><%= c.titulo %> </b><%= c.conteudo %>
+
+          <p>
+            <%= image_tag "profile_m.gif", :size => "30x30" unless comentario.user.photo_file_name %>
+            <%= image_tag comentario.user.photo.url(:small) , :size => "30x30" if comentario.user.photo_file_name %>
+            <b><%= c.titulo %> </b><%= c.conteudo %>
             <%= time_ago_in_words(c.created_at) %>
             <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                         comentario_path(c),
@@ -71,6 +81,8 @@
       <% end %>
 
       <%= form_for Comentario.new, :html => { :class => 'form-inline' } do |f| %>
+          <%= image_tag "profile_m.gif", :size => "30x30" unless current_user.photo_file_name %>
+          <%= image_tag current_user.photo.url(:small) , :size => "30x30" if current_user.photo_file_name %>
           <%= hidden_field :comentario, :comentavel_id, :value => comentario.id %>
           <%= hidden_field :comentario, :comentavel_type, :value => comentario.class %>
           <%= f.text_area :conteudo, :class => 'text_area', :rows => 1  %>

@@ -21,6 +21,7 @@ group :assets do
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer', :platforms => :ruby
 
+  gem "paperclip", :git => "http://github.com/thoughtbot/paperclip.git"
   gem 'uglifier', '>= 1.0.3'
 end
 

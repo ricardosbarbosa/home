@@ -18,6 +18,11 @@ authorization do
     end
 
     has_permission_on [:eventos], :to => [:index, :show]
+    has_permission_on [:users], :to => [ :edit, :update]   do
+       if_attribute :id => is { user.id }
+       if_attribute :email => is { user.email }
+     end
+
 
   end
 
