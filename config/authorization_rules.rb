@@ -17,12 +17,13 @@ authorization do
       if_attribute :user => is { user }
     end
 
-    has_permission_on [:eventos], :to => [:index, :show]
+    has_permission_on [:eventos], :to => [:index, :show]  do
+        if_attribute :residencial_id => is { user.apartamento.residencial_id }
+    end
     has_permission_on [:users], :to => [ :edit, :update]   do
        if_attribute :id => is { user.id }
        if_attribute :email => is { user.email }
      end
-
 
   end
 
@@ -30,6 +31,7 @@ authorization do
     includes :guest
     includes :condomino
 
-    has_permission_on [:eventos], :to => [:index, :show, :new, :create, :edit, :update, :destroy]
+    has_permission_on [:eventos], :to => [:new, :create, :edit, :update, :destroy]
+
   end
 end
