@@ -96,10 +96,16 @@
               <div class="well sidebar-nav">
                 <h3>Menu</h3>
                 <% if has_role? :admin %>
-                <ul class="nav nav-list">
-                  <li class="nav-header">Administrtivo</li>
-                  <li><%= link_to "Residenciais", residenciais_path %></li>
-                </ul>
+                    <ul class="nav nav-list">
+                      <li class="nav-header">Administrtivo</li>
+                      <li><%= link_to "Residenciais", residenciais_path %></li>
+                    </ul>
+                <% end %>
+
+                <% if has_role? :condomino %>
+                    <ul class="nav nav-list">
+                      <li><%= link_to "Eventos", eventos_path %></li>
+                    </ul>
                 <% end %>
               </div><!--/.well -->
             </div><!--/span-->

@@ -1,5 +1,7 @@
 Home::Application.routes.draw do
 
+  resources :eventos
+
   resources :comentarios
 
   devise_for :users

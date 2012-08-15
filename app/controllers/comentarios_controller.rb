@@ -6,7 +6,7 @@ class ComentariosController < ApplicationController
   def index
     residencial = current_user.apartamento.residencial
     @comentarios = Comentario.joins(:user => [{:apartamento => :residencial}])
-      .where(:residenciais => {:id => residencial.id}).order(:created_at)
+      .where(:residenciais => {:id => residencial.id}).order("created_at DESC")
     #@comentarios = Comentario.where(:user_id => [residencial.apartamentos.each do |a| a.users] )
 
     respond_to do |format|

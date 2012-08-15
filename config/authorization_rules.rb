@@ -16,10 +16,15 @@ authorization do
     has_permission_on :comentarios, :to => [:destroy] do
       if_attribute :user => is { user }
     end
+
+    has_permission_on [:eventos], :to => [:index, :show]
+
   end
 
   role :sindico do
     includes :guest
     includes :condomino
+
+    has_permission_on [:eventos], :to => [:index, :show, :new, :create, :edit, :update, :destroy]
   end
 end

@@ -1,0 +1,62 @@
+<%- model_class = Evento -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:data_e_hora) %>:</strong></dt>
+  <dd><%= @evento.data_e_hora %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:descricao) %>:</strong></dt>
+  <dd><%= @evento.descricao %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:titulo) %>:</strong></dt>
+  <dd><%= @evento.titulo %></dd>
+</dl>
+<% @comentarios.each do |comentario| %>
+    <div class="row-fluid">
+
+    <div class="span11 alert <% if comentario.alerta %>alert-error <% end %>">
+  <p>
+    <b><%= comentario.titulo %> </b><%= comentario.conteudo %>
+    <%= time_ago_in_words(comentario.created_at) %>
+
+    <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                comentario_path(comentario),
+                :method => :delete,
+                :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+                :class => 'btn btn-mini btn-danger'if permitted_to? :destroy, comentario %>
+
+  </p>
+  <% comentario.comentarios.each do |c| %>
+      <p><b><%= c.titulo %> </b><%= c.conteudo %>
+        <%= time_ago_in_words(c.created_at) %>
+        <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                    comentario_path(c),
+                    :method => :delete,
+                    :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+                    :class => 'btn btn-mini btn-danger'if permitted_to? :destroy, c %>
+      </p>
+      <% end %>
+      <%= form_for Comentario.new, :html => { :class => 'form-inline' } do |f| %>
+          <%= hidden_field :comentario, :comentavel_id, :value => comentario.id %>
+          <%= hidden_field :comentario, :comentavel_type, :value => comentario.class %>
+          <%= f.text_area :conteudo, :class => 'text_area', :rows => 1  %>
+          <%= f.submit "mensagem", :class => 'btn btn-primary' %>
+      <% end %>
+
+    </div>
+    </div>
+    </div>
+<% end %>
+
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              eventos_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_evento_path(@evento), :class => 'btn'if permitted_to? :edit, @evento %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              evento_path(@evento),
+              :method => 'delete',
+              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+              :class => 'btn btn-danger' if permitted_to? :destroy, @evento%>
+</div>

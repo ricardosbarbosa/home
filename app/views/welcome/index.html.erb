@@ -37,7 +37,15 @@
     <div class="row-fluid">
 
     <div class="span1">
-      <%= image_tag "icon-chat.png", :width => "60px", :height => "60px" %>
+      <% if comentario.comentavel_type.eql? 'Evento' %>
+          <%= image_tag "icon-file.png", :width => "60px", :height => "60px" %>
+      <% elsif comentario.comentavel_type.eql?  'Arquivo' %>
+          <%= image_tag "icon-file.png", :width => "60px", :height => "60px" %>
+      <% elsif comentario.alerta %>
+          <%= image_tag "icon-alert.png", :width => "60px", :height => "60px" %>
+      <% else %>
+          <%= image_tag "icon-chat.png", :width => "60px", :height => "60px" %>
+      <% end %>
     </div>
     <div class="span11 alert <% if comentario.alerta %>alert-error <% end %>">
         <p>
@@ -48,7 +56,7 @@
                         comentario_path(comentario),
                         :method => :delete,
                         :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
-                        :class => 'btn btn-mini btn-danger'if permitted_to? :destroy, comentario %>
+                        :class => 'btn btn-mini btn-danger' if permitted_to? :destroy, comentario %>
 
         </p>
       <% comentario.comentarios.each do |c| %>

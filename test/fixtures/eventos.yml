@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  data_e_hora: 2012-08-14 19:59:13
+  user_id: 1
+  descricao: MyText
+  titulo: MyString
+
+two:
+  data_e_hora: 2012-08-14 19:59:13
+  user_id: 1
+  descricao: MyText
+  titulo: MyString
