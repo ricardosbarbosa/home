@@ -60,8 +60,10 @@
                   <!--<li><%= link_to  "Residenciais", residenciais_path if  (permitted_to? :create, :residenciais) %></li>-->
                 </ul>
                 <ul class="nav pull-right">
-
+                 <% if current_user.apartamento %>
                  <li> <%= link_to current_user.email, edit_residencial_apartamento_user_path(current_user.apartamento.residencial,current_user.apartamento,current_user) if  (permitted_to? :edit, current_user) %>
+                 <% end %>
+
                  </li>
                   <li class="active"><%= link_to "Sign out", destroy_user_session_path, :method => :delete %> </li>
                 </ul>
