@@ -10,14 +10,18 @@ class User < ActiveRecord::Base
                   :photo, :photo_content_type, :photo_file_name, :photo_file_size, :photo_updated_at
   # attr_accessible :title, :body
 
-  has_attached_file :photo, :styles => { :small => "150x150>" }
+  belongs_to :apartamento
+
+  has_attached_file :photo, :styles => { :small => "150x150>" } ,
+                    :url  => "/assets/users/:id/:style/:basename.:extension",
+                    :path => ":rails_root/public/assets/users/:id/:style/:basename.:extension"
 
   validates_uniqueness_of :email
 
   has_many :assignments
   has_many :roles, :through => :assignments
 
-  belongs_to :apartamento
+
 
   has_many :comentarios, :dependent => :destroy
 

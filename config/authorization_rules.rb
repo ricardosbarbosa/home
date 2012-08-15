@@ -20,6 +20,11 @@ authorization do
     has_permission_on [:eventos], :to => [:index, :show]  do
         if_attribute :residencial_id => is { user.apartamento.residencial_id }
     end
+
+    has_permission_on [:arquivos], :to => [:index, :show]  do
+        if_attribute :residencial_id => is { user.apartamento.residencial_id }
+    end
+
     has_permission_on [:users], :to => [ :edit, :update]   do
        if_attribute :id => is { user.id }
        if_attribute :email => is { user.email }
@@ -32,6 +37,7 @@ authorization do
     includes :condomino
 
     has_permission_on [:eventos], :to => [:new, :create, :edit, :update, :destroy]
+    has_permission_on [:arquivos], :to => [:new, :create, :destroy]
 
   end
 end

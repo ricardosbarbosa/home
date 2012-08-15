@@ -1,5 +1,5 @@
 <%  if user_signed_in? and current_user.apartamento and (permitted_to? :create, Comentario.new) %>
-<%= form_for @comentario, :html => { :class => 'form-vertical' } do |f| %>
+<%= form_for @comentario, :html => { :class => 'form-vertical', :style => "margin-top: -17px" } do |f| %>
     <% if @comentario.errors.any? %>
         <div id="error_explanation" class="alert alert-error">
           <h2><%= pluralize(@comentario.errors.count, "error") %> prohibited this pessoa from being saved:</h2>
@@ -40,7 +40,7 @@
 
     <div class="span1">
       <% if comentario.comentavel_type.eql? 'Evento' %>
-          <%= image_tag "icon-file.png", :width => "60px", :height => "60px" %>
+          <%= image_tag "icon-evento.png", :width => "60px", :height => "60px" %>
       <% elsif comentario.comentavel_type.eql?  'Arquivo' %>
           <%= image_tag "icon-file.png", :width => "60px", :height => "60px" %>
       <% elsif comentario.alerta %>

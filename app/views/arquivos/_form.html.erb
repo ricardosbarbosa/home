@@ -1,0 +1,38 @@
+<%= form_for @arquivo, :html => { :class => 'form-horizontal' } do |f| %>
+    <% if @arquivo.errors.any? %>
+        <div id="error_explanation" class="alert alert-error">
+          <h2><%= pluralize(@arquivo.errors.count, "error") %> prohibited this pessoa from being saved:</h2>
+
+          <ul>
+            <% @arquivo.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="control-group">
+    <%= f.label :titulo, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :titulo, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :descricao, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :descricao, :class => 'text_area textarea_comment', :rows => 3 %>
+    </div>
+  </div>
+
+    <div class="control-group">
+      <div class="controls">
+        <%= f.file_field :file %>
+      </div>
+    </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                arquivos_path, :class => 'btn' %>
+  </div>
+<% end %>

@@ -1,5 +1,7 @@
 Home::Application.routes.draw do
 
+  resources :arquivos
+
   resources :eventos
 
   resources :comentarios

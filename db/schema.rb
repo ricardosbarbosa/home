@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120815155445) do
+ActiveRecord::Schema.define(:version => 20120815172045) do
 
   create_table "apartamentos", :force => true do |t|
     t.string   "numero"
@@ -25,6 +25,18 @@ ActiveRecord::Schema.define(:version => 20120815155445) do
     t.integer  "residencial_id"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+  end
+
+  create_table "arquivos", :force => true do |t|
+    t.string   "titulo"
+    t.text     "descricao"
+    t.integer  "residencial_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
   end
 
   create_table "assignments", :force => true do |t|

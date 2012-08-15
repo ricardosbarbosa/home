@@ -6,5 +6,6 @@ class Residencial < ActiveRecord::Base
   has_many :apartamentos, :dependent => :destroy
   has_many :areas, :dependent => :destroy
   has_many :eventos, :dependent => :destroy
+  has_many :arquivos, :dependent => :destroy
 
 end
