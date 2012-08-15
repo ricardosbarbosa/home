@@ -1,5 +1,17 @@
 <%= form_for @evento, :html => { :class => 'form-horizontal' } do |f| %>
 
+    <% if @evento.errors.any? %>
+        <div id="error_explanation" class="alert alert-error">
+          <h2><%= pluralize(@evento.errors.count, "error") %> prohibited this pessoa from being saved:</h2>
+
+          <ul>
+            <% @evento.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
     <div class="control-group">
       <%= f.label :titulo, :class => 'control-label' %>
       <div class="controls">

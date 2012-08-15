@@ -5,8 +5,12 @@ class EventosController < ApplicationController
   # GET /eventos.json
   def index
     residencial = current_user.apartamento.residencial
-    @eventos = Evento.joins(:user => [{:apartamento => :residencial}])
-    .where(:residenciais => {:id => residencial.id})
+    #@eventos = Evento.joins(:user => [{:apartamento => :residencial}])
+    #.where(:residenciais => {:id => residencial.id})
+    #.order("created_at DESC")
+
+    @eventos = Evento
+    .where(:residencial_id => residencial.id)
     .order("created_at DESC")
 
     respond_to do |format|
@@ -49,6 +53,7 @@ class EventosController < ApplicationController
   def create
     @evento = Evento.new(params[:evento])
     @evento.user = current_user
+    @evento.residencial = current_user.apartamento.residencial
 
     respond_to do |format|
       if @evento.save
