@@ -51,7 +51,7 @@ class ComentariosController < ApplicationController
     respond_to do |format|
       if @comentario.save
         #format.html { redirect_to @comentario, notice: 'Comentario was successfully created.' }
-        format.html { redirect_to root_path, notice: 'Comentario was successfully created.' }
+        format.html { redirect_to :back, notice: 'Comentario was successfully created.' }
         format.json { render json: @comentario, status: :created, location: @comentario }
       else
         #format.html { render action: "new" }
