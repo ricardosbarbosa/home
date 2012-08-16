@@ -3,7 +3,7 @@ class CreateUserAdmin < ActiveRecord::Migration
     admin = User.new(:email => "rbrico@gmail.com",:password => "123456")
     r = Role.find_by_nome("admin")
     admin.roles << r
-    admin.save
+    admin.save(:validate => false)
 
     #sindico = User.new(:email => "sindico@gmail.com",:password => "123456")
     #r = Role.find_by_nome("sindico")

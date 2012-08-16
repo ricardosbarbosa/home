@@ -7,6 +7,9 @@
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:email) %></th>
+      <th><%= model_class.human_attribute_name(:sign_in_count) %></th>
+      <th><%= model_class.human_attribute_name(:confirmation_sent_at) %></th>
+      <th><%= model_class.human_attribute_name(:confirmed_at) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -16,7 +19,10 @@
       <tr>
         <td><%= user.id %></td>
         <td><%= user.email %></td>
-        <td><%=l user.created_at %></td>
+        <td><%= user.sign_in_count %></td>
+        <td><%= user.confirmation_sent_at %></td>
+        <td><%= user.confirmed_at %></td>
+        <td><%= user.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_residencial_apartamento_user_path(user.apartamento.residencial,user.apartamento,user), :class => 'btn btn-mini' %>

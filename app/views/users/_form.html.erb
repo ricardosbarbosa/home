@@ -13,8 +13,8 @@
 
     <div class="control-group">
       <div class="controls">
-        <%= image_tag "profile_m.gif", :size => "150x150" unless current_user.photo_file_name %>
-        <%= image_tag current_user.photo.url(:small) , :size => "150x150" if current_user.photo_file_name %>
+        <%= image_tag "profile_m.gif", :size => "150x150" unless @user.photo_file_name %>
+        <%= image_tag @user.photo.url(:small) , :size => "150x150" if @user.photo_file_name %>
 
         <%= f.file_field :photo %>
       </div>
@@ -27,12 +27,12 @@
       </div>
     </div>
 
-    <div class="control-group">
-      <%= f.label :password, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :password, :class => 'text_field' %>
-      </div>
-    </div>
+    <!--<div class="control-group">-->
+      <!--<%= f.label :password, :class => 'control-label' %>-->
+      <!--<div class="controls">-->
+        <!--<%= f.password_field :password, :class => 'text_field' %>-->
+      <!--</div>-->
+    <!--</div>-->
 
     <% if has_role? :admin %>
     <div class="control-group">

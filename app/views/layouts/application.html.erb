@@ -1,6 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+
+    <style>
+
+        body {
+
+            background: url(./assets/bg.jpg) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+
+            background-color: #efefef;
+
+            /*-webkit-background-size:cover;*/
+            /*background-attachment:fixed;*/
+            /*background-image:url(http://css-tricks.com/examples/FullPageBackgroundImage/images/bg.jpg);*/
+            /*background-position:50% 50%;*/
+            /*background-repeat:no-repeat no-repeat;*/
+            /*background-size:cover;*/
+        }
+    </style>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,6 +55,8 @@
     <!-- For all other devices -->
     <!-- Size should be 32 x 32 pixels -->
     <%= favicon_link_tag 'images/favicon.ico', :rel => 'shortcut icon' %>
+
+
   </head>
   <body>
 
@@ -51,7 +75,8 @@
                       <% else %>
                 Residencial Online
                     <% end %>
-
+            <% else %>
+                Residencial Online
                 <% end %>
                     </a>
           <div class="container nav-collapse">
@@ -66,10 +91,26 @@
 
                  </li>
                   <li class="active"><%= link_to "Sign out", destroy_user_session_path, :method => :delete %> </li>
+
                 </ul>
             <% else %>
+
                 <ul class="nav pull-right">
-                  <li class="active"><%= link_to "Sign in", new_user_session_path %> </li>
+                  <li class="active">
+                    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => 'form-inline' }) do |f| %>
+
+                        <%= f.email_field :email, :placeholder=>"E-mail",  :class=> "input-medium" %>
+
+                        <%= f.password_field :password, :placeholder=>"Senha", :class=> "input-medium" %>
+
+                        <% if devise_mapping.rememberable? -%>
+                            <%= f.check_box :remember_me %> <%= f.label :remember_me %>
+                        <% end -%>
+
+                        <%= f.submit "Sign in" , :class => "btn btn-danger btn-mini"%>
+                    <% end %>
+                  </li>
+
                 </ul>
             <% end %>
           </div><!--/.nav-collapse -->
@@ -77,10 +118,10 @@
       </div>
     </div>
 
-    <div class="container">
-      <div class="content">
+    <div class="container" >
+      <div class="content" style="min-height: 450px">
         <div class="row">
-           <div class=<%  if user_signed_in? %>"span9"<% else %>"span12"<% end %> >
+           <div class=<%  if user_signed_in? %>"span9" <% else %> "span12" <% end %> >
              <% flash.each do |name, msg| %>
                  <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
                    <a class="close" data-dismiss="alert">&#215;</a>
@@ -113,9 +154,55 @@
         </div><!--/row-->
       </div><!--/content-->
 
-      <footer>
-        <p>&copy; Company 2012</p>
-      </footer>
+
+    <footer>
+      <div class="width_wrap">
+        <div class="left">
+          <nav>
+            <ul>
+              <li><a href="/about">About</a></li>
+              <li><a href="/explore">Explore</a></li>
+
+              <li><a href="/help/guidelines">Guidelines</a></li>
+              <li><a href="/blog">Blog</a></li>
+
+              <li><a href="/jobs">Jobs</a></li>
+              <li><a href="#">Developers</a></li>
+            </ul>
+          </nav>
+
+          <div id="footers_footer">
+            <div id="legal">
+              <p>© 2012 Residencial Online . All rights reserved.</p>
+              <ul>
+                <li>
+                  <!--<a href="/terms" title="Terms &amp; Conditions">-->
+                    <!--Terms                </a>-->
+                </li>
+                <li>
+                  <!--<a href="/privacy" title="Privacy Policy">-->
+                    <!--Privacy                </a>-->
+                </li>
+                <li>
+                  <!--<a href="/dmca" title="Copyright Information">-->
+                    <!--Copyright                </a>-->
+                </li>
+                <li>
+                  <!--<a href="/site_map" title="Site Map">-->
+                    <!--Site Map                </a>-->
+                <!--</li>-->
+              </ul>
+              <p class="with_love">
+                Made with <a href="/love" class="iconify loveo" title="Love">♥</a> in <abbr title="João Pessoa - Paraíba - Brasil">JP-PB-BRASIL</abbr>.        </p>
+            </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </footer>
+
 
     </div> <!-- /container -->
 

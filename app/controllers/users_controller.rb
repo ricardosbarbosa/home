@@ -16,7 +16,13 @@ class UsersController < ApplicationController
   # GET /residenciais/1
   # GET /residenciais/1.json
   def show
-    @user = User.find(params[:id])
+    if (params[:id] == current_user.id)
+      @user = current_user
+    else
+      @user = User.find(params[:id])
+    end
+
+
 
     respond_to do |format|
       format.html # show.html.erb
@@ -53,6 +59,9 @@ class UsersController < ApplicationController
 
     role = Role.find_by_nome("condomino")
     @user.roles << role
+    password = (0...8).map{ ('a'..'z').to_a[rand(26)] }.join
+    @user.password =  password
+
     #@user = User.new(params[:residencial])
 
     respond_to do |format|
@@ -60,6 +69,8 @@ class UsersController < ApplicationController
         #format.html { redirect_to [@user.apartamento.residencial, @user.apartamento, @user], notice: 'User was successfully created.' }
         format.html { redirect_to residencial_apartamento_users_path, notice: 'User was successfully created.' }
         format.json { render json: @user, status: :created, location: @user }
+
+        UserMailer.welcome_email(@user, password).deliver!
       else
         format.html { render action: "new" }
         format.json { render json: @user.errors, status: :unprocessable_entity }
