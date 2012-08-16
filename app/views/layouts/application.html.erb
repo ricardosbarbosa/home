@@ -102,12 +102,22 @@
                         <%= f.email_field :email, :placeholder=>"E-mail",  :class=> "input-medium" %>
 
                         <%= f.password_field :password, :placeholder=>"Senha", :class=> "input-medium" %>
+                        
+                        <%= f.submit "Sign in" , :class => "btn btn-danger btn-mini"%>
+                        <br />
 
                         <% if devise_mapping.rememberable? -%>
                             <%= f.check_box :remember_me %> <%= f.label :remember_me %>
                         <% end -%>
 
-                        <%= f.submit "Sign in" , :class => "btn btn-danger btn-mini"%>
+                        
+                        <%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
+  <%= link_to "Esqueceu a senha?", new_password_path(resource_name) %>
+<% end -%>
+
+<%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+  <%= link_to "Confirmação por email?", new_confirmation_path(resource_name) %>
+<% end -%>
                     <% end %>
                   </li>
 
