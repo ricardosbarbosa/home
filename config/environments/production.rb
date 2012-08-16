@@ -65,5 +65,15 @@ Home::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
-  config.action_mailer.default_url_options = { :host => 'www.residencialonline.com' }
+  config.action_mailer.default_url_options = { :host => 'home.webbyapp.com' }
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      :address              => "smtp.gmail.com",
+      :port                 => 587,
+      :domain               => 'google.com',
+      :user_name            => 'rbrico@gmail.com',
+      :password             => 'Rico1985',
+      :authentication       => 'plain',
+      :enable_starttls_auto => true  }
 end

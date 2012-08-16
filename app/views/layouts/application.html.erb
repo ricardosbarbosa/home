@@ -121,7 +121,7 @@
     <div class="container" >
       <div class="content" style="min-height: 450px">
         <div class="row">
-           <div class=<%  if user_signed_in? %>"span9" <% else %> "span12" <% end %> >
+           <div class=<%  if user_signed_in? %>"span9"<% else %> "span12" <% end %> >
              <% flash.each do |name, msg| %>
                  <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
                    <a class="close" data-dismiss="alert">&#215;</a>
