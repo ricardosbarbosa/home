@@ -25,14 +25,9 @@ authorization do
         if_attribute :residencial_id => is { user.apartamento.residencial_id }
     end
 
-
     has_permission_on [:users], :to => [ :edit, :update]   do
        if_attribute :id => is { user.id }
        if_attribute :email => is { user.email }
-     end
-
-    has_permission_on [:residenciais], :to => [ :vizinhos]   do
-       if_attribute :apartamento => {:users => contains { user}}
      end
 
   end

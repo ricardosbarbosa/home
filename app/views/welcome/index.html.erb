@@ -51,33 +51,6 @@
     </div>
     <div class="span11 alert <% if comentario.alerta %>alert-error <% end %>">
 
-        <% if comentario.comentavel_type.eql? 'Evento' %>
-          <div class="well">
-
-              <div style="text-align: center; color:black; float: left; border: 0px black solid; padding: 10px;">
-                <span style="color:red; font-size: xx-large; font-weight: bold;"><%=  comentario.evento.data_e_hora.day  %> </span>
-                <br/><span><%=  comentario.evento.data_e_hora.strftime('%b %Y')   %></span>
-                <br/><span><%=  comentario.evento.data_e_hora.strftime('%I:%M %p')   %></span> <br/>
-              </div>
-              <div style="margin: 15px 100px 0px 100px; ">
-                <span style="color:black; font-size: xx-large; font-weight: bold;"><%=  comentario.evento.titulo  %> </span><br />
-                 <span style="color:black;"><%=  comentario.evento.descricao  %> </span>
-              </div>
-          </div>
-        <% elsif comentario.comentavel_type.eql?  'Arquivo' %>
-          <div class="well">
-            <div style="text-align: center; color:black; float: left;">
-              <%= link_to image_tag(comentario.arquivo.icon, :size => "65x65") , comentario.arquivo.file.url %>
-          </div>
-          <div style="margin: 5px 100px; ">
-            <span style="color:red; font-size: xx-large; font-weight: bold;"> <%= comentario.arquivo.titulo %></span><br />
-            <span style="color:black;"><%= comentario.arquivo.descricao %> </span><br />
-
-            <%= link_to "Baixar arquivo", comentario.arquivo.file.url %><br />
-          </div>
-          </div>
-        <% end %>
-
       <p>
         <%= image_tag "profile_m.gif", :size => "30x30" unless comentario.user.photo_file_name %>
         <%= image_tag comentario.user.photo.url(:small) , :size => "30x30" if comentario.user.photo_file_name %>
@@ -112,7 +85,8 @@
           <%= image_tag current_user.photo.url(:small) , :size => "30x30" if current_user.photo_file_name %>
           <%= hidden_field :comentario, :comentavel_id, :value => comentario.id %>
           <%= hidden_field :comentario, :comentavel_type, :value => comentario.class %>
-          <%= f.text_field :conteudo, :class => 'text_area', :rows => 1  %>
+          <%= f.text_area :conteudo, :class => 'text_area', :rows => 1  %>
+          <%= f.submit "mensagem", :class => 'btn btn-primary' %>
       <% end %>
     </div>
 

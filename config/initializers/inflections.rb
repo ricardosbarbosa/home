@@ -13,7 +13,6 @@
  ActiveSupport::Inflector.inflections do |inflect|
 
    inflect.irregular 'residencial', 'residenciais'
-   inflect.irregular 'reserva', 'reservas'
    inflect.irregular 'apartamento', 'apartamentos'
 
 

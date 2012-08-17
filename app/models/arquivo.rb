@@ -32,15 +32,4 @@ class Arquivo < ActiveRecord::Base
   #  errors.add(:media, "type is not allowed") unless VALID_CONTENT_TYPES.include?(self.file_content_type)
   #end
 
-  def icon
-    if file_content_type.include? 'pdf'
-      "icon_pdf.png"
-    elsif file_content_type.include? 'xls'
-      "icon_excel.png"
-    elsif file_content_type.include? 'doc'
-      "icon_doc.png"
-    else
-    "icon_unk_type.png"
-    end
-  end
 end

@@ -3,32 +3,14 @@
   <h1><%=t '.title', :default => model_class.model_name.human %></h1>
 </div>
 
-<div >
-  <%= link_to t('.back', :default => t("helpers.links.back")),
-              eventos_path, :class => 'btn'  %>
-</div>
-<br />
-<div class="well span4">
-
-  <div style="text-align: center; color:black; float: left; border: 1px #d3d3d3 solid; padding: 10px;">
-    <span style="color:red; font-size: xx-large; font-weight: bold;"><%=  @evento.data_e_hora.day  %> </span>
-    <br/><span><%=  @evento.data_e_hora.strftime('%b %Y')   %></span>
-    <br/><span><%=  @evento.data_e_hora.strftime('%I:%M %p')   %></span> <br/>
-  </div>
-  <div style="margin: 0px 0px 0px 90px; ">
-    <span style="color:red; font-size: xx-large; font-weight: bold;"><%=  @evento.titulo  %> </span><br />
-    <span style="color:black;"><%=  @evento.descricao  %> </span>  <br />
-
-    <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                edit_evento_path(@evento), :class => 'btn btn-mini' if permitted_to? :edit, @evento %>
-    <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                evento_path(@evento),
-                :method => :delete,
-                :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
-                :class => 'btn btn-mini btn-danger' if permitted_to? :destroy, @evento %>
-  </div>
-</div>
-
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:data_e_hora) %>:</strong></dt>
+  <dd><%= @evento.data_e_hora %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:descricao) %>:</strong></dt>
+  <dd><%= @evento.descricao %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:titulo) %>:</strong></dt>
+  <dd><%= @evento.titulo %></dd>
+</dl>
 <% @comentarios.each do |comentario| %>
     <div class="row-fluid">
 
@@ -64,7 +46,8 @@
           <%= image_tag current_user.photo.url(:small) , :size => "30x30" if current_user.photo_file_name %>
           <%= hidden_field :comentario, :comentavel_id, :value => comentario.id %>
           <%= hidden_field :comentario, :comentavel_type, :value => comentario.class %>
-          <%= f.text_field :conteudo, :class => 'text_area', :rows => 1  %>
+          <%= f.text_area :conteudo, :class => 'text_area', :rows => 1  %>
+          <%= f.submit "mensagem", :class => 'btn btn-primary' %>
       <% end %>
 
     </div>
@@ -72,6 +55,14 @@
 <% end %>
 
 
-
-
-
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              eventos_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_evento_path(@evento), :class => 'btn'if permitted_to? :edit, @evento %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              evento_path(@evento),
+              :method => 'delete',
+              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+              :class => 'btn btn-danger' if permitted_to? :destroy, @evento%>
+</div>

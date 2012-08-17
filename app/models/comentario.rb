@@ -10,15 +10,4 @@ class Comentario < ActiveRecord::Base
   #validates_presence_of :titulo
 
 
-  def evento
-      if (comentavel_id and comentavel_type.eql? "Evento")
-          evento = Evento.find(comentavel_id)
-      end
-  end
-
-  def arquivo
-    if (comentavel_id and comentavel_type.eql? "Arquivo")
-      arquivo = Arquivo.find(comentavel_id)
-    end
-  end
 end
