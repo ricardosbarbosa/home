@@ -3,7 +3,7 @@
   <head>
 
     <style>
-
+        <%  if not user_signed_in? %>
         body {
 
             background: url(./assets/bg.jpg) no-repeat center center fixed;
@@ -21,6 +21,7 @@
             /*background-repeat:no-repeat no-repeat;*/
             /*background-size:cover;*/
         }
+      <% end %>
     </style>
 
     <meta charset="utf-8">
