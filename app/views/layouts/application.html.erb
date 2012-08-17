@@ -3,7 +3,7 @@
   <head>
 
     <style>
-        <%  if not user_signed_in? %>
+        <%  if (not user_signed_in?) %>
         body {
 
             background: url(./assets/bg.jpg) no-repeat center center fixed;
@@ -154,12 +154,45 @@
 
                 <% if has_role? :condomino %>
                     <ul class="nav nav-list">
+                      <li class="nav-header">Menu</li>
                       <li><%= link_to "Home", root_path %></li>
+                      <li><%= link_to "Perfil", edit_residencial_apartamento_user_path(current_user.apartamento.residencial,current_user.apartamento,current_user) if  (permitted_to? :edit, current_user) %></li>
                       <li><%= link_to "Eventos", eventos_path %></li>
                       <li><%= link_to "Arquivos", arquivos_path %></li>
+                      <li><%= link_to "Reservas", reservas_path %></li>
+
+                      <li><%= link_to "Vizinhos", residencial_vizinhos_path(current_user.apartamento.residencial) %></li>
+
                     </ul>
                 <% end %>
               </div><!--/.well -->
+
+              <div class="well sidebar-nav">
+                <% if @usuarios    %>
+                    <ul class="nav nav-list">
+                        <li class="nav-header">
+                          Vizinhos <%= link_to "Ver detalhes", residencial_vizinhos_path(current_user.apartamento.residencial) %>
+                        </li>
+                    </ul>
+                    <br/>
+                    <ul class="thumbnails">
+                        <%@usuarios.each do |u|  %>
+                          <li >
+                            <a href="#"
+                               rel="popover"
+                               data-content="Apartamento: <%= u.apartamento.numero %>"
+                               data-original-title="<%= u.email %>"
+                            >
+                              <%= image_tag "profile_m.gif", :size => "30x30" unless u.photo_file_name %>
+                              <%= image_tag u.photo.url(:small) , :size => "30x30" if u.photo_file_name %>
+                            </a>
+                          </li>
+
+                        <% end %>
+                        </ul>
+               <% end %>
+                </div>
+
             </div><!--/span-->
           <% end %>
         </div><!--/row-->

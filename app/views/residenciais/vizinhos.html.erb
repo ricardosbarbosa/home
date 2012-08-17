@@ -1,0 +1,44 @@
+<%- model_class = User -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+
+<div class="row">
+<% @vizinhos.each do |user| %>
+      <div class="span3 well">
+        <td>
+          <%= image_tag "profile_m.gif", :size => "30x30" unless user.photo_file_name %>
+          <%= image_tag user.photo.url(:small) , :size => "30x30" if user.photo_file_name %>
+        </td>
+        <td>
+          <%= user.apartamento.numero %> <br />
+          <%= user.email %> <br />
+          <% if has_role? :porteiro %>
+              <%= user.sign_in_count %>  <br />
+              <%=l user.confirmation_sent_at %>  <br />
+              <%=l user.confirmed_at if user.confirmed_at %>    <br />
+              <%=l user.created_at %></td> <br />
+          <% end %>
+
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_residencial_apartamento_user_path(user.apartamento.residencial,user.apartamento,user), :class => 'btn btn-mini' if permitted_to? :edit, user %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      residencial_apartamento_user_path(user.apartamento.residencial,user.apartamento,user),
+                      :method => :delete,
+                      :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+                      :class => 'btn btn-mini btn-danger' if permitted_to? :destroy, user  %>
+
+          </td>
+
+
+          </div>
+
+
+
+
+
+<% end %>
+</div>
+
+      <br />
+

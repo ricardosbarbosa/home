@@ -3,17 +3,30 @@
   <h1><%=t '.title', :default => model_class.model_name.human %></h1>
 </div>
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:titulo) %>:</strong></dt>
-  <dd><%= @arquivo.titulo %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:descricao) %>:</strong></dt>
-  <dd><%= @arquivo.descricao %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:residencial_id) %>:</strong></dt>
-  <dd><%= @arquivo.residencial_id %></dd>
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              arquivos_path, :class => 'btn'  %>
+<br/><br/>
+<div class="row">
+  <div class="well span4">
 
-  <dt>Arquivo</dt>
-  <dd><%= link_to "Baixar arquivo", @arquivo.file.url %></dd>
-</dl>
+    <div style="text-align: center; color:black; float: left;">
+      <%= link_to image_tag(@arquivo.icon, :size => "65x65") , @arquivo.file.url %>
+    </div>
+    <div style="margin: 0px 0px 0px 80px; ">
+      <span style="color:red; font-size: xx-large; font-weight: bold;"> <%= @arquivo.titulo %></span><br />
+      <span style="color:black;"><%= @arquivo.descricao %> </span><br />
+
+      <%= link_to "Baixar arquivo", @arquivo.file.url %><br />
+      <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                  edit_arquivo_path(@arquivo), :class => 'btn'if permitted_to? :edit, @arquivo %>
+      <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                  arquivo_path(@arquivo),
+                  :method => 'delete',
+                  :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+                  :class => 'btn btn-mini btn-danger' if permitted_to? :destroy, @arquivo%>
+    </div>
+    </div>
+  </div>
 <% @comentarios.each do |comentario| %>
     <div class="row-fluid">
 
@@ -49,8 +62,7 @@
             <%= image_tag current_user.photo.url(:small) , :size => "30x30" if current_user.photo_file_name %>
             <%= hidden_field :comentario, :comentavel_id, :value => comentario.id %>
             <%= hidden_field :comentario, :comentavel_type, :value => comentario.class %>
-            <%= f.text_area :conteudo, :class => 'text_area', :rows => 1  %>
-            <%= f.submit "mensagem", :class => 'btn btn-primary' %>
+            <%= f.text_field :conteudo, :class => 'text_area', :rows => 1  %>
         <% end %>
 
       </div>
@@ -58,14 +70,4 @@
 <% end %>
 
 
-<div class="form-actions">
-  <%= link_to t('.back', :default => t("helpers.links.back")),
-              arquivos_path, :class => 'btn'  %>
-  <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_arquivo_path(@arquivo), :class => 'btn'if permitted_to? :edit, @arquivo %>
-  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              arquivo_path(@arquivo),
-              :method => 'delete',
-              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
-              :class => 'btn btn-danger' if permitted_to? :destroy, @arquivo%>
-</div>
+
