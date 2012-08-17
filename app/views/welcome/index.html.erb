@@ -68,8 +68,8 @@
       <% comentario.comentarios.each do |c| %>
 
           <p>
-            <%= image_tag "profile_m.gif", :size => "30x30" unless comentario.user.photo_file_name %>
-            <%= image_tag comentario.user.photo.url(:small) , :size => "30x30" if comentario.user.photo_file_name %>
+            <%= image_tag "profile_m.gif", :size => "30x30" unless c.user.photo_file_name %>
+            <%= image_tag c.user.photo.url(:small) , :size => "30x30" if c.user.photo_file_name %>
             <b><%= c.titulo %> </b><%= c.conteudo %>
             <%= time_ago_in_words(c.created_at) %>
             <%= link_to t('.destroy', :default => t("helpers.links.destroy")),

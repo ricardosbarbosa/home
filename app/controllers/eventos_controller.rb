@@ -24,7 +24,7 @@ class EventosController < ApplicationController
   def show
 
     @evento = Evento.find(params[:id])
-    @comentarios = Comentario.where(:comentavel_id => @evento.id).order('created_at DESC')
+    @comentarios = Comentario.where(:comentavel_id => @evento.id, :comentavel_type => "Evento").order('created_at DESC')
 
     respond_to do |format|
       format.html # show.html.erb

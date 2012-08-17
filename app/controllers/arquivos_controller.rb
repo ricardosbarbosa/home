@@ -22,7 +22,7 @@ class ArquivosController < ApplicationController
   # GET /arquivos/1.json
   def show
     @arquivo = Arquivo.find(params[:id])
-    @comentarios = Comentario.where(:comentavel_id => @arquivo.id).order('created_at DESC')
+    @comentarios = Comentario.where(:comentavel_id => @arquivo.id, :comentavel_type => "Arquivo").order('created_at DESC')
 
     respond_to do |format|
       format.html # show.html.erb
