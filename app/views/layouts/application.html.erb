@@ -72,12 +72,12 @@
           <a class="brand" href="#">
             <%  if user_signed_in? %>
                     <%  if current_user.apartamento  %>
-                        <%= link_to (current_user.apartamento.residencial.nome), root_path, :class => "brand" %>
+                    <span style="color: #dc143c;">Oi</span><span style="color: white;">Vizinho.com <%= link_to (current_user.apartamento.residencial.nome), root_path, :class => "brand", :style => "color: white" %> </span>
                       <% else %>
-                Residencial Online
+                        <span style="color: #dc143c;">Oi</span><span style="color: white;">Vizinho.com</span>
                     <% end %>
             <% else %>
-                Residencial Online
+                <span style="color: #dc143c;">Oi</span><span style="color: white;">Vizinho</span>
                 <% end %>
                     </a>
           <div class="container nav-collapse">
@@ -105,7 +105,7 @@
                         <%= f.password_field :password, :placeholder=>"Senha", :class=> "input-medium" %>
                         
                         <%= f.submit "Sign in" , :class => "btn btn-danger btn-mini"%>
-                        <br />
+
 
                         <% if devise_mapping.rememberable? -%>
                             <%= f.check_box :remember_me %> <%= f.label :remember_me %>
@@ -148,20 +148,19 @@
                 <% if has_role? :admin %>
                     <ul class="nav nav-list">
                       <li class="nav-header">Administrtivo</li>
-                      <li><%= link_to "Residenciais", residenciais_path %></li>
+                      <li><%= link_to residenciais_path do  %><i class="icon-home" /></i><%= "Home" %> <% end %></li>
                     </ul>
                 <% end %>
 
                 <% if has_role? :condomino %>
                     <ul class="nav nav-list">
                       <li class="nav-header">Menu</li>
-                      <li><%= link_to "Home", root_path %></li>
-                      <li><%= link_to "Perfil", edit_residencial_apartamento_user_path(current_user.apartamento.residencial,current_user.apartamento,current_user) if  (permitted_to? :edit, current_user) %></li>
-                      <li><%= link_to "Eventos", eventos_path %></li>
-                      <li><%= link_to "Arquivos", arquivos_path %></li>
-                      <li><%= link_to "Reservas", reservas_path %></li>
-
-                      <li><%= link_to "Vizinhos", residencial_vizinhos_path(current_user.apartamento.residencial) %></li>
+                      <li><%= link_to root_path do %><i class="icon-home" /></i><%= "Home" %> <% end %></li>
+                      <li><%= link_to edit_residencial_apartamento_user_path(current_user.apartamento.residencial,current_user.apartamento,current_user) do %> <i class="icon-user" /></i><%= "Perfil"%> <% end if permitted_to? :edit, current_user %></li>
+                      <li><%= link_to eventos_path do %><i class="icon-calendar" /></i><%= "Eventos" %> <% end %></li>
+                      <li><%= link_to arquivos_path do %> <i class="icon-file" /></i><%= "Arquivos"%> <% end %></li>
+                      <li><%= link_to reservas_path do %><i class="icon-hand-up" /></i><%= "Reservas" %> <% end %></li>
+                      <li><%= link_to residencial_vizinhos_path(current_user.apartamento.residencial) do %> <i class="icon-heart" /></i><%= "Vizinhos"%> <% end %></li>
 
                     </ul>
                 <% end %>
