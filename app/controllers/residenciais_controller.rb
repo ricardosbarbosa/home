@@ -1,5 +1,5 @@
 class ResidenciaisController < ApplicationController
-  filter_resource_access
+  filter_access_to :all
 
   # GET /residenciais
   # GET /residenciais.json
@@ -81,5 +81,14 @@ class ResidenciaisController < ApplicationController
       format.html { redirect_to residenciais_url }
       format.json { head :no_content }
     end
+  end
+
+  def vizinhos
+    #@residencial = Residencial.find(params[:residencial_id])
+    @vizinhos = User.
+        joins(:apartamento => :residencial)
+    .where(:residenciais => {:id => current_user.apartamento.residencial_id})
+    .order("apartamentos.numero, email")
+
   end
 end

@@ -1,5 +1,9 @@
 Home::Application.routes.draw do
 
+
+
+  resources :reservas
+
   resources :arquivos
 
   resources :eventos
@@ -11,10 +15,14 @@ Home::Application.routes.draw do
   resources :users
 
   resources :residenciais do
+    get "vizinhos"
+
     resources :apartamentos do
        resources :users
     end
     resources :areas
+
+
   end
 
   get "welcome/index"
