@@ -3,10 +3,10 @@
   <head>
 
     <style>
-        <%  if (not user_signed_in?) %>
+
         body {
 
-            background: url(./assets/bg.jpg) no-repeat center center fixed;
+            background: url(./assets/bg.jpg) no-repeat center center fixed ;
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
@@ -21,7 +21,7 @@
             /*background-repeat:no-repeat no-repeat;*/
             /*background-size:cover;*/
         }
-      <% end %>
+
     </style>
 
     <meta charset="utf-8">
@@ -60,7 +60,7 @@
 
   </head>
   <body>
-
+  <div class="geral">
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -72,9 +72,9 @@
           <a class="brand" href="#">
             <%  if user_signed_in? %>
                     <%  if current_user.apartamento  %>
-                    <span style="color: #dc143c;">Oi</span><span style="color: white;">Vizinho.com <%= link_to (current_user.apartamento.residencial.nome), root_path, :class => "brand", :style => "color: white" %> </span>
+                    <span style="color: #dc143c;">Oi</span><span style="color: white;">Vizinho <%= link_to (current_user.apartamento.residencial.nome), root_path, :class => "brand", :style => "color: white" %> </span>
                       <% else %>
-                        <span style="color: #dc143c;">Oi</span><span style="color: white;">Vizinho.com</span>
+                        <span style="color: #dc143c;">Oi</span><span style="color: white;">Vizinho</span>
                     <% end %>
             <% else %>
                 <span style="color: #dc143c;">Oi</span><span style="color: white;">Vizinho</span>
@@ -129,10 +129,63 @@
       </div>
     </div>
 
-    <div class="container" >
-      <div class="content" style="min-height: 450px">
+    <div class="container">
+      <div class="content">
         <div class="row">
-           <div class=<%  if user_signed_in? %>"span9"<% else %> "span12" <% end %> >
+          <%  if user_signed_in? %>
+              <div class="span3">
+                <div class="well sidebar-nav">
+
+                  <% if has_role? :admin %>
+                      <ul class="nav nav-list">
+                        <li class="nav-header">Administrtivo</li>
+                        <li><%= link_to residenciais_path do  %><i class="icon-home" /></i><%= "Home" %> <% end %></li>
+                      </ul>
+                  <% end %>
+
+                  <% if has_role? :condomino %>
+                      <ul class="nav nav-list">
+                        <li class="nav-header">Menu</li>
+                        <li><%= link_to root_path do %><i class="icon-home" /></i><%= "Home" %> <% end %></li>
+                        <li><%= link_to edit_residencial_apartamento_user_path(current_user.apartamento.residencial,current_user.apartamento,current_user) do %> <i class="icon-user" /></i><%= "Perfil"%> <% end if permitted_to? :edit, current_user %></li>
+                        <li><%= link_to eventos_path do %><i class="icon-calendar" /></i><%= "Eventos" %> <% end %></li>
+                        <li><%= link_to arquivos_path do %> <i class="icon-file" /></i><%= "Arquivos"%> <% end %></li>
+                        <li><%= link_to reservas_path do %><i class="icon-hand-up" /></i><%= "Reservas" %> <% end %></li>
+                        <li><%= link_to residencial_vizinhos_path(current_user.apartamento.residencial) do %> <i class="icon-heart" /></i><%= "Vizinhos"%> <% end %></li>
+
+                      </ul>
+                  <% end %>
+                </div><!--/.well -->
+
+                <div class="well sidebar-nav">
+                  <% if @usuarios    %>
+                      <ul class="nav nav-list">
+                        <li class="nav-header">
+                          Vizinhos <%= link_to "Ver detalhes", residencial_vizinhos_path(current_user.apartamento.residencial) %>
+                        </li>
+                      </ul>
+                      <br/>
+                      <ul class="thumbnails">
+                        <%@usuarios.each do |u|  %>
+                            <li >
+                              <a href="#"
+                                 rel="popover"
+                                 data-content="Apartamento: <%= u.apartamento.numero %>"
+                                 data-original-title="<%= u.email %>"
+                              >
+                                <%= image_tag "profile_m.gif", :size => "30x30" unless u.photo_file_name %>
+                                <%= image_tag u.photo.url(:small) , :size => "30x30" if u.photo_file_name %>
+                              </a>
+                            </li>
+
+                        <% end %>
+                      </ul>
+                  <% end %>
+                </div>
+
+              </div><!--/span-->
+          <% end %>
+           <div class="span9">
              <% flash.each do |name, msg| %>
                  <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
                    <a class="close" data-dismiss="alert">&#215;</a>
@@ -141,113 +194,60 @@
              <% end %>
               <%= yield %>
             </div>
-          <%  if user_signed_in? %>
-            <div class="span3">
-              <div class="well sidebar-nav">
 
-                <% if has_role? :admin %>
-                    <ul class="nav nav-list">
-                      <li class="nav-header">Administrtivo</li>
-                      <li><%= link_to residenciais_path do  %><i class="icon-home" /></i><%= "Home" %> <% end %></li>
-                    </ul>
-                <% end %>
-
-                <% if has_role? :condomino %>
-                    <ul class="nav nav-list">
-                      <li class="nav-header">Menu</li>
-                      <li><%= link_to root_path do %><i class="icon-home" /></i><%= "Home" %> <% end %></li>
-                      <li><%= link_to edit_residencial_apartamento_user_path(current_user.apartamento.residencial,current_user.apartamento,current_user) do %> <i class="icon-user" /></i><%= "Perfil"%> <% end if permitted_to? :edit, current_user %></li>
-                      <li><%= link_to eventos_path do %><i class="icon-calendar" /></i><%= "Eventos" %> <% end %></li>
-                      <li><%= link_to arquivos_path do %> <i class="icon-file" /></i><%= "Arquivos"%> <% end %></li>
-                      <li><%= link_to reservas_path do %><i class="icon-hand-up" /></i><%= "Reservas" %> <% end %></li>
-                      <li><%= link_to residencial_vizinhos_path(current_user.apartamento.residencial) do %> <i class="icon-heart" /></i><%= "Vizinhos"%> <% end %></li>
-
-                    </ul>
-                <% end %>
-              </div><!--/.well -->
-
-              <div class="well sidebar-nav">
-                <% if @usuarios    %>
-                    <ul class="nav nav-list">
-                        <li class="nav-header">
-                          Vizinhos <%= link_to "Ver detalhes", residencial_vizinhos_path(current_user.apartamento.residencial) %>
-                        </li>
-                    </ul>
-                    <br/>
-                    <ul class="thumbnails">
-                        <%@usuarios.each do |u|  %>
-                          <li >
-                            <a href="#"
-                               rel="popover"
-                               data-content="Apartamento: <%= u.apartamento.numero %>"
-                               data-original-title="<%= u.email %>"
-                            >
-                              <%= image_tag "profile_m.gif", :size => "30x30" unless u.photo_file_name %>
-                              <%= image_tag u.photo.url(:small) , :size => "30x30" if u.photo_file_name %>
-                            </a>
-                          </li>
-
-                        <% end %>
-                        </ul>
-               <% end %>
-                </div>
-
-            </div><!--/span-->
-          <% end %>
         </div><!--/row-->
       </div><!--/content-->
 
 
-    <footer>
-      <div class="width_wrap">
-        <div class="left">
-          <nav>
-            <ul>
-              <li><a href="/about">About</a></li>
-              <li><a href="/explore">Explore</a></li>
+    </div>
 
-              <li><a href="/help/guidelines">Guidelines</a></li>
-              <li><a href="/blog">Blog</a></li>
+     <div class="footer">
+       <div class="width_wrap">
+         <div class="left">
+           <nav>
+             <ul>
+               <li><a href="/about">Sobre</a></li>
+               <li><a href="/explore">Explore</a></li>
 
-              <li><a href="/jobs">Jobs</a></li>
-              <li><a href="#">Developers</a></li>
-            </ul>
-          </nav>
+               <li><a href="/blog">Blog</a></li>
 
-          <div id="footers_footer">
-            <div id="legal">
-              <p>© 2012 Residencial Online . All rights reserved.</p>
-              <ul>
-                <li>
-                  <!--<a href="/terms" title="Terms &amp; Conditions">-->
-                    <!--Terms                </a>-->
-                </li>
-                <li>
-                  <!--<a href="/privacy" title="Privacy Policy">-->
-                    <!--Privacy                </a>-->
-                </li>
-                <li>
-                  <!--<a href="/dmca" title="Copyright Information">-->
-                    <!--Copyright                </a>-->
-                </li>
-                <li>
-                  <!--<a href="/site_map" title="Site Map">-->
-                    <!--Site Map                </a>-->
-                <!--</li>-->
-              </ul>
-              <p class="with_love">
-                Made with <a href="/love" class="iconify loveo" title="Love">♥</a> in <abbr title="João Pessoa - Paraíba - Brasil">JP-PB-BRASIL</abbr>.        </p>
-            </div>
+               <li><a href="/jobs">Jobs</a></li>
 
+             </ul>
+           </nav>
 
-
-          </div>
-        </div>
-      </div>
-    </footer>
+           <div id="footers_footer">
+             <div id="legal">
+               <p>© 2012 <span style="color: #dc143c;">Oi</span><span style="color: black;">Vizinho</span> . All rights reserved.</p>
+               <ul>
+                 <li>
+                   <!--<a href="/terms" title="Terms &amp; Conditions">-->
+                   <!--Terms                </a>-->
+                 </li>
+                 <li>
+                   <!--<a href="/privacy" title="Privacy Policy">-->
+                   <!--Privacy                </a>-->
+                 </li>
+                 <li>
+                   <!--<a href="/dmca" title="Copyright Information">-->
+                   <!--Copyright                </a>-->
+                 </li>
+                 <li>
+                   <!--<a href="/site_map" title="Site Map">-->
+                   <!--Site Map                </a>-->
+                   <!--</li>-->
+               </ul>
+               <p class="with_love">
+                 Made with <a href="/love" class="iconify loveo" title="Love">♥</a> in <abbr title="João Pessoa - Paraíba - Brasil">JP-PB-BRASIL</abbr>.        </p>
+             </div>
 
 
-    </div> <!-- /container -->
+
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
 
     <!-- Javascripts
     ================================================== -->

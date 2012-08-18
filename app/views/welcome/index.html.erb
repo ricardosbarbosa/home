@@ -60,7 +60,7 @@
                 <br/><span><%=  comentario.evento.data_e_hora.strftime('%I:%M %p')   %></span> <br/>
               </div>
               <div style="margin: 15px 100px 0px 100px; ">
-                <span style="color:black; font-size: xx-large; font-weight: bold;"><%=  comentario.evento.titulo  %> </span><br />
+                <span style="color:red; font-size: xx-large; font-weight: bold;"><%=  comentario.evento.titulo  %> </span><br />
                  <span style="color:black;"><%=  comentario.evento.descricao  %> </span>
               </div>
           </div>
@@ -79,8 +79,15 @@
         <% end %>
 
       <p>
-        <%= image_tag "profile_m.gif", :size => "30x30" unless comentario.user.photo_file_name %>
-        <%= image_tag comentario.user.photo.url(:small) , :size => "30x30" if comentario.user.photo_file_name %>
+
+        <a href="#"
+           rel="popover"
+           data-content="Apartamento: <%= u.apartamento.numero %>"
+           data-original-title="<%= u.email %>"
+        >
+          <%= image_tag "profile_m.gif", :size => "30x30" unless omentario.user.photo_file_name %>
+          <%= image_tag omentario.user.photo.url(:small) , :size => "30x30" if omentario.user.photo_file_name %>
+        </a>
 
         <b><%= comentario.titulo %> </b><%= comentario.conteudo %>
           <%= time_ago_in_words(comentario.created_at) %>
