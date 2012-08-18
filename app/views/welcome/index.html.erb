@@ -82,11 +82,11 @@
 
         <a href="#"
            rel="popover"
-           data-content="Apartamento: <%= u.apartamento.numero %>"
-           data-original-title="<%= u.email %>"
+           data-content="Apartamento: <%= comentario.user.apartamento.numero %>"
+           data-original-title="<%= comentario.user.email %>"
         >
-          <%= image_tag "profile_m.gif", :size => "30x30" unless omentario.user.photo_file_name %>
-          <%= image_tag omentario.user.photo.url(:small) , :size => "30x30" if omentario.user.photo_file_name %>
+          <%= image_tag "profile_m.gif", :size => "30x30" unless comentario.user.photo_file_name %>
+          <%= image_tag comentario.user.photo.url(:small) , :size => "30x30" if comentario.user.photo_file_name %>
         </a>
 
         <b><%= comentario.titulo %> </b><%= comentario.conteudo %>

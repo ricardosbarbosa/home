@@ -16,7 +16,6 @@
 .geral {
     min-height:100%;
     position:relative;
-
 }
 .footer {
     padding: 20px 0 10px 0;
@@ -26,6 +25,7 @@
     position: absolute;
     bottom:0;
     width: 100%;
+    margin-bottom: 60px;
 
 }
 

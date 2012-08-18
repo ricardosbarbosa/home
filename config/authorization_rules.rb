@@ -1,4 +1,5 @@
 authorization do
+
   role :admin do
     has_permission_on [:residenciais], :to => [:index, :show, :new, :create, :edit, :update, :destroy]
     has_permission_on [:apartamentos], :to => [:index, :show, :new, :create, :edit, :update, :destroy]
@@ -22,9 +23,13 @@ authorization do
     end
 
     has_permission_on [:arquivos], :to => [:index, :show]  do
-        if_attribute :residencial_id => is { user.apartamento.residencial_id }
-    end
+            if_attribute :residencial_id => is { user.apartamento.residencial_id }
+        end
 
+    has_permission_on [:reservas], :to => [:index, :show, :new, :create]
+    has_permission_on [:reservas], :to => [ :edit ]  do
+        if_attribute :user => is { user }, :status => is { 'Aguardando Aprovação' }
+    end
 
     has_permission_on [:users], :to => [ :edit, :update]   do
        if_attribute :id => is { user.id }
@@ -43,6 +48,14 @@ authorization do
 
     has_permission_on [:eventos], :to => [:new, :create, :edit, :update, :destroy]
     has_permission_on [:arquivos], :to => [:new, :create, :destroy]
+
+    has_permission_on [:areas], :to => [:new, :create, :edit, :update, :destroy]
+
+    has_permission_on [:areas], :to => [:index, :show]  do
+        if_attribute :residencial_id => is { user.apartamento.residencial_id }
+    end
+
+    has_permission_on [:reservas], :to => [:update, :destroy ]
 
   end
 end

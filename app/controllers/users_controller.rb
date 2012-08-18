@@ -59,7 +59,8 @@ class UsersController < ApplicationController
 
     role = Role.find_by_nome("condomino")
     @user.roles << role
-    password = (0...8).map{ ('a'..'z').to_a[rand(26)] }.join
+    password = (0...4).map{ ('a'..'z').to_a[rand(26)] }.join
+    password << (0...4).map{ (0..9).to_a[rand(10)] }.join
     @user.password =  password
 
     #@user = User.new(params[:residencial])

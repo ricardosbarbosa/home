@@ -1,32 +1,92 @@
-<%= form_for @reserva, :html => { :class => 'form-horizontal' } do |f| %>
-  <div class="control-group">
-    <%= f.label :area_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.number_field :area_id, :class => 'number_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :user_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.number_field :user_id, :class => 'number_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :status, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :status, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :data, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.date_select :data, :class => 'date_select' %>
-    </div>
-  </div>
+<% if current_user.apartamento.residencial.areas  %>
+    <% if @reserva.errors.any? %>
+        <div id="error_explanation" class="alert alert-error">
+          <h2><%= pluralize(@reserva.errors.count, "error") %> prohibited this reserva from being saved:</h2>
 
-  <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                reservas_path, :class => 'btn' %>
-  </div>
+          <ul>
+            <% @reserva.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <%= form_for @reserva, :html => { :class => 'form-horizontal' } do |f| %>
+        <% if current_user.has_role? :sindico %>
+            <div class="control-group">
+              <%= f.label :status, :class => 'control-label' %>
+              <div class="controls">
+                <%= f.select :status, {"Aguardando Arpovação" => "Aguardando Arpovação", "Aprovado" => "Aprovado", "Rejeitado" => "Rejeitado"} %>
+              </div>
+            </div>
+        <% end %>
+
+
+      <div class="control-group">
+        <%= f.label :area_id, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.select :area_id, @areas.map {|r| [r.nome,r.id] }, :html => {:disabled=>"disabled"}   %>
+
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.label :data, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.date_select :data, :class => 'date_select'   %>
+
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <%= f.submit nil, :class => 'btn btn-primary' %>
+        <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                    reservas_path, :class => 'btn' %>
+      </div>
+    <% end %>
+
+
+    Reservas já aprovadas. Basei-se por essa listagem para solicitar uma reserva.
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Area</th>
+        <th>Apartamento</th>
+        <th>Solicitado para</th>
+        <th>Solicitado em</th>
+        <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @reservas.each do |reserva| %>
+          <tr>
+            <td><%= reserva.area.nome %></td>
+            <td><%= reserva.user.apartamento.numero %></td>
+            <td><%=l reserva.data %></td>
+            <td><%=l reserva.created_at %></td>
+            <td>
+              <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                          edit_reserva_path(reserva), :class => 'btn btn-mini' if permitted_to? :edit, reserva %>
+              <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                          reserva_path(reserva),
+                          :method => :delete,
+                          :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+                          :class => 'btn btn-mini btn-danger' if permitted_to? :destroy, reserva %>
+            </td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+
+
+<% else %>
+    Não ha areas externas cadastradas para o residencial. <br />
+
+    <%= link_to "Cadastrar Nova Area",
+                new_residencial_area_path(current_user.apartamento.residencial),
+                :class => 'btn btn-primary' if permitted_to? :new, Area.new %>
+
 <% end %>
+
+

@@ -2,35 +2,38 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 </div>
+
+<% if current_user.apartamento.residencial.areas %>
+
+
+
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:area_id) %></th>
-      <th><%= model_class.human_attribute_name(:user_id) %></th>
       <th><%= model_class.human_attribute_name(:status) %></th>
-      <th><%= model_class.human_attribute_name(:data) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= model_class.human_attribute_name(:area_id) %></th>
+      <th>Apartamento</th>
+      <th>Solicitado para</th>
+      <th>Solicitado em</th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @reservas.each do |reserva| %>
       <tr>
-        <td><%= link_to reserva.id, reserva_path(reserva) %></td>
-        <td><%= reserva.area_id %></td>
-        <td><%= reserva.user_id %></td>
-        <td><%= reserva.status %></td>
-        <td><%= reserva.data %></td>
+        <td><i class="<%= reserva.status_icon %>"> </i></td>
+        <td><%= reserva.area.nome %></td>
+        <td><%= reserva.user.apartamento.numero %></td>
+        <td><%=l reserva.data %></td>
         <td><%=l reserva.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_reserva_path(reserva), :class => 'btn btn-mini' %>
+                      edit_reserva_path(reserva), :class => 'btn btn-mini' if permitted_to? :edit, reserva %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       reserva_path(reserva),
                       :method => :delete,
                       :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
-                      :class => 'btn btn-mini btn-danger' %>
+                      :class => 'btn btn-mini btn-danger' if permitted_to? :destroy, reserva %>
         </td>
       </tr>
     <% end %>
@@ -40,3 +43,12 @@
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_reserva_path,
             :class => 'btn btn-primary' %>
+
+<% else %>
+Não ha areas externas cadastradas para o residencial. <br />
+
+<%= link_to "Cadastrar Nova Area",
+            new_residencial_area_path(current_user.apartamento.residencial),
+            :class => 'btn btn-primary' if permitted_to? :new, Area.new %>
+
+<% end %>

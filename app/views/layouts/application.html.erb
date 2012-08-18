@@ -5,7 +5,7 @@
     <style>
 
         body {
-
+             <% if not user_signed_in? %>
             background: url(./assets/bg.jpg) no-repeat center center fixed ;
             -webkit-background-size: cover;
             -moz-background-size: cover;
@@ -20,6 +20,7 @@
             /*background-position:50% 50%;*/
             /*background-repeat:no-repeat no-repeat;*/
             /*background-size:cover;*/
+            <% end %>
         }
 
     </style>
@@ -200,7 +201,7 @@
 
 
     </div>
-
+    <% if not user_signed_in? %>
      <div class="footer">
        <div class="width_wrap">
          <div class="left">
@@ -247,6 +248,7 @@
          </div>
        </div>
      </div>
+        <% end %>
    </div>
 
     <!-- Javascripts
