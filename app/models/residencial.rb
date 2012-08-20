@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Residencial < ActiveRecord::Base
   attr_accessible :nome
 
@@ -8,4 +9,12 @@ class Residencial < ActiveRecord::Base
   has_many :eventos, :dependent => :destroy
   has_many :arquivos, :dependent => :destroy
 
+  def numero_de_reservas_aguardando_aprovacao
+
+    Reserva
+    .joins(:area => :residencial)
+    .where(:residenciais => {:id => id})
+    .where(:status => "Aguardando Aprovação")
+    .count
+  end
 end

@@ -16,4 +16,10 @@ class UserMailer < ActionMailer::Base
 
   end
 
+  def reserva_atualizada(reserva)
+
+    @reserva = reserva
+    mail(:to => reserva.user.email, :subject => "[Oi Vizinho] reserva atualizada pelo síndico")
+  end
+
 end

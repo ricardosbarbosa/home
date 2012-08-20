@@ -30,8 +30,9 @@ authorization do
     has_permission_on [:reservas], :to => [ :edit ]  do
         if_attribute :user => is { user }, :status => is { 'Aguardando Aprovação' }
     end
+
     has_permission_on [:reservas], :to => [ :destroy ]  do
-        if_attribute :user => is { user } }
+        if_attribute :user => is { user }
     end
 
     has_permission_on [:users], :to => [ :edit, :update]   do
@@ -61,4 +62,17 @@ authorization do
     has_permission_on [:reservas], :to => [:update, :edit ]
 
   end
+
+   role :porteiro do
+      has_permission_on [:reservas], :to => [:index ]
+      has_permission_on [:residenciais], :to => [ :vizinhos]   do
+         if_attribute :apartamento => {:users => contains { user }}
+       end
+
+       has_permission_on [:comentarios], :to => [:create]
+       has_permission_on :comentarios, :to => [:destroy] do
+         if_attribute :user => is { user }
+       end
+   end
+
 end

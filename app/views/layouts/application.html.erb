@@ -161,12 +161,12 @@
                   <% if has_role? :condomino %>
                       <ul class="nav nav-list">
                         <li class="nav-header">Menu</li>
-                        <li><%= link_to root_path do %><i class="icon-home" /></i><%= "Home" %> <% end %></li>
+                        <li><%= link_to root_path do %><i class="icon-home" ></i><%= "Home" %> <% end %></li>
                         <li><%= link_to edit_residencial_apartamento_user_path(current_user.apartamento.residencial,current_user.apartamento,current_user) do %> <i class="icon-user" /></i><%= "Perfil"%> <% end if permitted_to? :edit, current_user %></li>
-                        <li><%= link_to eventos_path do %><i class="icon-calendar" /></i><%= "Eventos" %> <% end %></li>
-                        <li><%= link_to arquivos_path do %> <i class="icon-file" /></i><%= "Arquivos"%> <% end %></li>
-                        <li><%= link_to reservas_path do %><i class="icon-hand-up" /></i><%= "Reservas" %> <% end %></li>
-                        <li><%= link_to residencial_vizinhos_path(current_user.apartamento.residencial) do %> <i class="icon-heart" /></i><%= "Vizinhos"%> <% end %></li>
+                        <li><%= link_to eventos_path do %><i class="icon-calendar" ></i><%= "Eventos" %> <% end %></li>
+                        <li><%= link_to arquivos_path do %> <i class="icon-file" ></i><%= "Arquivos"%> <% end %></li>
+                        <li><%= link_to reservas_path do %><i class="icon-hand-up" ></i><%= "Reservas" %>  <%=  current_user.apartamento.residencial.numero_de_reservas_aguardando_aprovacao if has_role? :sindico %><% end %> </li>
+                        <li><%= link_to residencial_vizinhos_path(current_user.apartamento.residencial) do %> <i class="icon-heart" ></i><%= "Vizinhos"%> <% end %></li>
 
                       </ul>
                   <% end %>

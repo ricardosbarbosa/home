@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Reserva < ActiveRecord::Base
   validate :validate_data_no_passado
   attr_accessible :area_id, :data, :status, :user_id
@@ -25,4 +26,6 @@ class Reserva < ActiveRecord::Base
     end
 
   end
+
+
 end

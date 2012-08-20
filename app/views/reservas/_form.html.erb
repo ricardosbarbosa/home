@@ -16,7 +16,8 @@
             <div class="control-group">
               <%= f.label :status, :class => 'control-label' %>
               <div class="controls">
-                <%= f.select :status, {"Aguardando Arpovação" => "Aguardando Arpovação", "Aprovado" => "Aprovado", "Rejeitado" => "Rejeitado"} %>
+                <%= f.select :status, {"Aguardando Arpovação" => "Aguardando Arpovação", "Aprovado" => "Aprovado", "Rejeitado" => "Rejeitado"},
+                             {},  {:disabled=>(not current_user.id.eql? @reserva.user.id)}%>
               </div>
             </div>
         <% end %>
@@ -25,7 +26,7 @@
       <div class="control-group">
         <%= f.label :area_id, :class => 'control-label' %>
         <div class="controls">
-          <%= f.select :area_id, @areas.map {|r| [r.nome,r.id] }, :html => {:disabled=>"disabled"}   %>
+          <%= f.select :area_id, @areas.map {|r| [r.nome,r.id] },{},  {:disabled=>(not current_user.id.eql? @reserva.user.id)} %>
 
         </div>
       </div>
@@ -45,7 +46,7 @@
       </div>
     <% end %>
 
-
+    <% if @reservas %>
     Reservas já aprovadas. Basei-se por essa listagem para solicitar uma reserva.
     <table class="table table-striped">
       <thead>
@@ -74,7 +75,10 @@
                           :class => 'btn btn-mini btn-danger' if permitted_to? :destroy, reserva %>
             </td>
           </tr>
-      <% end %>
+      <% end  %>
+      <% else %>
+         Não ha nenhuma reserva registrada até o momento.
+    <% end  %>
       </tbody>
     </table>
 

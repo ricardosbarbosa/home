@@ -98,6 +98,8 @@ class ReservasController < ApplicationController
       if @reserva.update_attributes(params[:reserva])
         format.html { redirect_to @reserva, notice: 'Reserva was successfully updated.' }
         format.json { head :no_content }
+
+        UserMailer.reserva_atualizada(@reserva).deliver! if current_user.has_role? :sindico
       else
         format.html { render action: "edit" }
         format.json { render json: @reserva.errors, status: :unprocessable_entity }
