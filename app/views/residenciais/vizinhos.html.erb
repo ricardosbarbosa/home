@@ -5,7 +5,7 @@
 
 <div class="row">
 <% @vizinhos.each do |user| %>
-      <div class="span3 well <%= "alert alert-info" if user.has_role? :sindico %>">
+      <div class="span3 well alert <%= "alert-info" if user.has_role? :sindico %>">
 
 
         <td>
@@ -14,21 +14,21 @@
         </td>
         <td>
           <%= user.apartamento.numero %> <br />
-          <%= user.email %> <br />
+          <%= user.email %>
           <% if has_role? :porteiro %>
               <%= user.sign_in_count %>  <br />
               <%=l user.confirmation_sent_at %>  <br />
               <%=l user.confirmed_at if user.confirmed_at %>    <br />
-              <%=l user.created_at %></td> <br />
+              <%=l user.created_at %>
           <% end %>
-
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_residencial_apartamento_user_path(user.apartamento.residencial,user.apartamento,user), :class => 'btn btn-mini' if permitted_to? :edit, user %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      residencial_apartamento_user_path(user.apartamento.residencial,user.apartamento,user),
-                      :method => :delete,
-                      :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
-                      :class => 'btn btn-mini btn-danger' if permitted_to? :destroy, user  %>
+          <td>
+            <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                        edit_residencial_apartamento_user_path(user.apartamento.residencial,user.apartamento,user), :class => 'btn btn-mini' if permitted_to? :edit, user %>
+            <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                        residencial_apartamento_user_path(user.apartamento.residencial,user.apartamento,user),
+                        :method => :delete,
+                        :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+                        :class => 'btn btn-mini btn-danger' if permitted_to? :destroy, user  %>
 
           </td>
 
