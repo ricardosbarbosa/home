@@ -8,6 +8,7 @@
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:numero) %></th>
       <th>Usuários</th>
+      <th>Perfis</th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -17,6 +18,7 @@
         <td><%= link_to apartamento.id, residencial_apartamento_path(apartamento.residencial, apartamento) %></td>
         <td><%= apartamento.numero %></td>
         <td><%= link_to apartamento.users.length, residencial_apartamento_users_path(apartamento.residencial, apartamento) %></td>
+        <td><%= apartamento.users.roles %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_residencial_apartamento_path(apartamento.residencial, apartamento), :class => 'btn btn-mini' %>
