@@ -30,6 +30,9 @@ authorization do
     has_permission_on [:reservas], :to => [ :edit ]  do
         if_attribute :user => is { user }, :status => is { 'Aguardando Aprovação' }
     end
+    has_permission_on [:reservas], :to => [ :destroy ]  do
+        if_attribute :user => is { user } }
+    end
 
     has_permission_on [:users], :to => [ :edit, :update]   do
        if_attribute :id => is { user.id }
@@ -55,7 +58,7 @@ authorization do
         if_attribute :residencial_id => is { user.apartamento.residencial_id }
     end
 
-    has_permission_on [:reservas], :to => [:update, :destroy ]
+    has_permission_on [:reservas], :to => [:update, :edit ]
 
   end
 end
