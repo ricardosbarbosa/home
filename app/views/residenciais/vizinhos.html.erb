@@ -5,7 +5,9 @@
 
 <div class="row">
 <% @vizinhos.each do |user| %>
-      <div class="span3 well">
+      <div class="span3 well <%= "alert alert-info" if user.has_role? :sindico %>">
+
+
         <td>
           <%= image_tag "profile_m.gif", :size => "30x30" unless user.photo_file_name %>
           <%= image_tag user.photo.url(:small) , :size => "30x30" if user.photo_file_name %>
