@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c341f0b0-5ae8-43d3-a9b0-362b8098ae27" name="Default" comment="" />
+    <list default="true" id="c341f0b0-5ae8-43d3-a9b0-362b8098ae27" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
+    </list>
     <ignored path="home.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,10 +25,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="application.html.erb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="application.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="167" column="188" selection-start="7785" selection-end="7785" vertical-scroll-proportion="-5.296296">
+            <state line="58" column="78" selection-start="2538" selection-end="2538" vertical-scroll-proportion="0.34911242">
               <folding />
             </state>
           </provider>
@@ -81,15 +83,31 @@
         <entry file="file://$PROJECT_DIR$/app/views/reservas/_form.html.erb">
           <provider selected="true" editor-type-id="text-editor">
             <state line="48" column="27" selection-start="1773" selection-end="1773" vertical-scroll-proportion="-5.5">
-              <folding />
+              <folding>
+                <marker date="1345502419000" expanded="true" signature="148:425" placeholder="..." />
+                <marker date="1345502419000" expanded="true" signature="274:410" placeholder="..." />
+                <marker date="1345502419000" expanded="true" signature="607:985" placeholder="..." />
+                <marker date="1345502419000" expanded="true" signature="708:966" placeholder="..." />
+                <marker date="1345502419000" expanded="true" signature="1039:1288" placeholder="..." />
+                <marker date="1345502419000" expanded="true" signature="1129:1275" placeholder="..." />
+                <marker date="1345502419000" expanded="true" signature="1323:1503" placeholder="..." />
+                <marker date="1345502419000" expanded="true" signature="1410:1490" placeholder="..." />
+                <marker date="1345502419000" expanded="true" signature="1537:1734" placeholder="..." />
+                <marker date="1345502419000" expanded="true" signature="1894:3169" placeholder="..." />
+                <marker date="1345502419000" expanded="true" signature="1908:2131" placeholder="..." />
+                <marker date="1345502419000" expanded="true" signature="1919:2116" placeholder="..." />
+                <marker date="1345502419000" expanded="true" signature="2145:3156" placeholder="..." />
+                <marker date="1345502419000" expanded="true" signature="2200:3034" placeholder="..." />
+                <marker date="1345502419000" expanded="true" signature="2413:3018" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/reservas/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="5" selection-start="149" selection-end="149" vertical-scroll-proportion="0.11506276">
+            <state line="9" column="23" selection-start="337" selection-end="337" vertical-scroll-proportion="-1.7228916">
               <folding />
             </state>
           </provider>
@@ -140,8 +158,8 @@
         <option value="$PROJECT_DIR$/app/views/user_mailer/reserva_atualizada.text.erb" />
         <option value="$PROJECT_DIR$/app/mailers/user_mailer.rb" />
         <option value="$PROJECT_DIR$/app/controllers/reservas_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/views/reservas/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
       </list>
     </option>
   </component>
@@ -815,17 +833,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="167" column="188" selection-start="7785" selection-end="7785" vertical-scroll-proportion="-5.296296">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/reservas/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="48" column="27" selection-start="1773" selection-end="1773" vertical-scroll-proportion="-5.5">
-          <folding />
+          <folding>
+            <marker date="1345502419000" expanded="true" signature="148:425" placeholder="..." />
+            <marker date="1345502419000" expanded="true" signature="274:410" placeholder="..." />
+            <marker date="1345502419000" expanded="true" signature="607:985" placeholder="..." />
+            <marker date="1345502419000" expanded="true" signature="708:966" placeholder="..." />
+            <marker date="1345502419000" expanded="true" signature="1039:1288" placeholder="..." />
+            <marker date="1345502419000" expanded="true" signature="1129:1275" placeholder="..." />
+            <marker date="1345502419000" expanded="true" signature="1323:1503" placeholder="..." />
+            <marker date="1345502419000" expanded="true" signature="1410:1490" placeholder="..." />
+            <marker date="1345502419000" expanded="true" signature="1537:1734" placeholder="..." />
+            <marker date="1345502419000" expanded="true" signature="1894:3169" placeholder="..." />
+            <marker date="1345502419000" expanded="true" signature="1908:2131" placeholder="..." />
+            <marker date="1345502419000" expanded="true" signature="1919:2116" placeholder="..." />
+            <marker date="1345502419000" expanded="true" signature="2145:3156" placeholder="..." />
+            <marker date="1345502419000" expanded="true" signature="2200:3034" placeholder="..." />
+            <marker date="1345502419000" expanded="true" signature="2413:3018" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -838,7 +865,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/reservas/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="5" selection-start="149" selection-end="149" vertical-scroll-proportion="0.11506276">
+        <state line="9" column="23" selection-start="337" selection-end="337" vertical-scroll-proportion="-1.7228916">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="58" column="78" selection-start="2538" selection-end="2538" vertical-scroll-proportion="0.34911242">
           <folding />
         </state>
       </provider>
