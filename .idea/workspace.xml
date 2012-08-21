@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c341f0b0-5ae8-43d3-a9b0-362b8098ae27" name="Default" comment="" />
+    <list default="true" id="c341f0b0-5ae8-43d3-a9b0-362b8098ae27" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
+    </list>
     <ignored path="home.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,7 +28,7 @@
       <file leaf-file-name="application.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="1" selection-start="2541" selection-end="2541" vertical-scroll-proportion="0.13017751">
+            <state line="72" column="12" selection-start="3139" selection-end="3139" vertical-scroll-proportion="0.7810651">
               <folding />
             </state>
           </provider>
@@ -870,7 +872,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="1" selection-start="2541" selection-end="2541" vertical-scroll-proportion="0.13017751">
+        <state line="72" column="12" selection-start="3139" selection-end="3139" vertical-scroll-proportion="0.7810651">
           <folding />
         </state>
       </provider>
