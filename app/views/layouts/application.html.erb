@@ -158,7 +158,7 @@
                       </ul>
                   <% end %>
 
-                  <% if has_role? :condomino %>
+                  <% if has_role? :condomino or has_role? :sindico %>
                       <ul class="nav nav-list">
                         <li class="nav-header">Menu</li>
                         <li><%= link_to root_path do %><i class="icon-home" ></i><%= "Home" %> <% end %></li>
