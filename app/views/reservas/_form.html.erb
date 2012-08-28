@@ -17,7 +17,7 @@
               <%= f.label :status, :class => 'control-label' %>
               <div class="controls">
                 <%= f.select :status, {"Aguardando Arpovação" => "Aguardando Arpovação", "Aprovado" => "Aprovado", "Rejeitado" => "Rejeitado"},
-                             {},  {:disabled=>(not current_user.id.eql? @reserva.user.id)}%>
+                             {},  {:disabled=>(@reserva.user and not current_user.id.eql? @reserva.user.id)}%>
               </div>
             </div>
         <% end %>
@@ -26,7 +26,7 @@
       <div class="control-group">
         <%= f.label :area_id, :class => 'control-label' %>
         <div class="controls">
-          <%= f.select :area_id, @areas.map {|r| [r.nome,r.id] },{},  {:disabled=>(not current_user.id.eql? @reserva.user.id)} %>
+          <%= f.select :area_id, @areas.map {|r| [r.nome,r.id] },{},  {:disabled=>(@reserva.user and not current_user.id.eql? @reserva.user.id)} %>
 
         </div>
       </div>
