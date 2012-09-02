@@ -7,6 +7,10 @@
   <dt><strong><%= model_class.human_attribute_name(:nome) %>:</strong></dt>
   <dd><%= @residencial.nome %></dd>
 </dl>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:regiao) %>:</strong></dt>
+  <dd><%= @residencial.regiao %></dd>
+</dl>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),

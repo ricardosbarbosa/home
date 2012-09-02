@@ -7,6 +7,7 @@
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:nome) %></th>
+      <th><%= model_class.human_attribute_name(:regiao) %></th>
       <th>Apartamentos</th>
       <th>Áreas</th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
@@ -18,6 +19,7 @@
       <tr>
         <td><%= link_to residencial.id, residencial_path(residencial) %></td>
         <td><%= residencial.nome %></td>
+        <td><%= residencial.regiao %></td>
         <td><%= link_to residencial.apartamentos.length , residencial_apartamentos_path(residencial) %></td>
         <td><%= link_to residencial.areas.length , residencial_areas_path(residencial) %></td>
         <td><%=l residencial.created_at %></td>

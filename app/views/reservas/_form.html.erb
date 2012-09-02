@@ -16,8 +16,7 @@
             <div class="control-group">
               <%= f.label :status, :class => 'control-label' %>
               <div class="controls">
-                <%= f.select :status, {"Aguardando Arpovação" => "Aguardando Arpovação", "Aprovado" => "Aprovado", "Rejeitado" => "Rejeitado"},
-                             {},  {:disabled=>(@reserva.user and not current_user.id.eql? @reserva.user.id)}%>
+                <%= f.select :status, {"Aguardando Arpovação" => "Aguardando Arpovação", "Aprovado" => "Aprovado", "Rejeitado" => "Rejeitado"}%>
               </div>
             </div>
         <% end %>
@@ -34,7 +33,8 @@
       <div class="control-group">
         <%= f.label :data, :class => 'control-label' %>
         <div class="controls">
-          <%= f.date_select :data, :class => 'date_select'   %>
+          <%= f.date_select :data, :class => 'date_select',
+                            :disabled=>(@reserva.user and not current_user.id.eql? @reserva.user.id)%>
 
         </div>
       </div>

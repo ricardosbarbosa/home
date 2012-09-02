@@ -159,6 +159,45 @@
                   <% end %>
                 </div><!--/.well -->
 
+                <!-- comentarios da regiao -->
+                <div class="well sidebar-nav">
+                  <ul class="nav nav-list">
+                    <li class="nav-header">
+
+                            Mensagens da Regiao
+
+                    </li>
+
+                  <%  if user_signed_in? and current_user.apartamento %>
+                      <% @comentarios_da_regiao.each do |comentario| %>
+
+                                <a href="#"
+                                   rel="popover"
+                                   data-content="Apartamento: <%= comentario.user.apartamento.numero %> Residencial:<%= comentario.user.apartamento.residencial.nome %> "
+                                   data-original-title="<%= comentario.user.email %>"
+                                >
+                                  <%= image_tag "profile_m.gif", :size => "30x30" unless comentario.user.photo_file_name %>
+                                  <%= image_tag comentario.user.photo.url(:small) , :size => "30x30" if comentario.user.photo_file_name %>
+                                </a>
+
+                                <b><%= comentario.titulo %> </b><%= comentario.conteudo %>
+                                <span style="font-size: x-small;color: #999999;"> <%= time_ago_in_words(comentario.created_at) %> </span>
+
+                                <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                                            comentario_path(comentario),
+                                            :method => :delete,
+                                            :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+                                            :class => 'btn btn-mini btn-danger' if permitted_to? :destroy, comentario %>
+
+                              </p>
+                      <% end %>
+                  <% end %>
+
+                  </ul>
+
+                </div>
+
+                <!-- Vizinhos -->
                 <div class="well sidebar-nav">
                   <% if @usuarios    %>
                       <ul class="nav nav-list">
@@ -207,15 +246,15 @@
        <div class="width_wrap">
          <div class="left">
            <nav>
-             <ul>
-               <li><a href="/about">Sobre</a></li>
-               <li><a href="/explore">Explore</a></li>
+             <!--<ul>-->
+               <!--<li><a href="/about">Sobre</a></li>-->
+               <!--<li><a href="/explore">Explore</a></li>-->
 
-               <li><a href="/blog">Blog</a></li>
+               <!--<li><a href="/blog">Blog</a></li>-->
 
-               <li><a href="/jobs">Jobs</a></li>
+               <!--<li><a href="/jobs">Jobs</a></li>-->
 
-             </ul>
+             <!--</ul>-->
            </nav>
 
            <div id="footers_footer">

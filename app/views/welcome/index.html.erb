@@ -25,7 +25,10 @@
         <%= f.text_area :conteudo, :class => 'text_area textarea_comment', :rows => 3  %>
       </div>
       <%= f.submit "mensagem", :class => 'btn btn-primary' %>
-      <%= f.check_box  :alerta %> Alerta
+
+      <span class="label label-important"> <%= f.check_box  :alerta %> Alerta</span>
+      <span class="label label-warning"><%= f.check_box  :postar_na_regiao %> Postar na regiao</span>
+
 
     </div>
 <% end %>
@@ -50,6 +53,15 @@
       <% end %>
     </div>
     <div class="span11 well <% if comentario.alerta %>alert alert-error <% end %>">
+
+
+      <span class="label label-warning">
+
+        <% if comentario.postar_na_regiao %>
+            Mensagem da Regiao
+        <% end %>
+
+      </span>
 
         <% if comentario.comentavel_type.eql? 'Evento' %>
           <div style="">

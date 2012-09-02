@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120817013114) do
+ActiveRecord::Schema.define(:version => 20120902145333) do
 
   create_table "apartamentos", :force => true do |t|
     t.string   "numero"
@@ -50,13 +50,15 @@ ActiveRecord::Schema.define(:version => 20120817013114) do
     t.integer  "comentavel_id"
     t.string   "comentavel_type"
     t.integer  "user_id"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.boolean  "alerta"
+    t.boolean  "postar_na_regiao"
   end
 
   add_index "comentarios", ["comentavel_id"], :name => "index_comentarios_on_comentavel_id"
   add_index "comentarios", ["comentavel_type"], :name => "index_comentarios_on_comentavel_type"
+  add_index "comentarios", ["postar_na_regiao"], :name => "index_comentarios_on_postar_na_regiao"
 
   create_table "eventos", :force => true do |t|
     t.datetime "data_e_hora"
@@ -81,6 +83,7 @@ ActiveRecord::Schema.define(:version => 20120817013114) do
     t.string   "nome"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "regiao"
   end
 
   create_table "roles", :force => true do |t|
