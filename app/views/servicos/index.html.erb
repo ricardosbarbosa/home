@@ -6,7 +6,7 @@
 <%= form_tag servicos_path, :method => :get do %>
     <%= select_tag "tipo", options_for_select(@tipos) %>
     <%= select_tag "regiao", options_for_select(@regioes) %>
-    <%= submit_tag "Filter", :class => 'btn btn-primary'  %>
+    <%= submit_tag "Filtrar", :class => 'btn btn-primary'  %>
 <% end %>
 
 <table class="table table-striped">
