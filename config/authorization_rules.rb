@@ -5,10 +5,11 @@ authorization do
     has_permission_on [:apartamentos], :to => [:index, :show, :new, :create, :edit, :update, :destroy]
     has_permission_on [:users], :to => [:index, :show, :new, :create, :edit, :update, :destroy]
     has_permission_on [:areas], :to => [:index, :show, :new, :create, :edit, :update, :destroy]
+    has_permission_on [:servicos], :to => [:index, :show, :new, :create, :edit, :update, :destroy]
   end
 
   role :guest do
-
+    has_permission_on [:servicos], :to => [:index, :show]
   end
 
   role :condomino do

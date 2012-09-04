@@ -1,5 +1,5 @@
 class ServicosController < ApplicationController
-
+  filter_resource_access
 
   # GET /servicos
   # GET /servicos.json
