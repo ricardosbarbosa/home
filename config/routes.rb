@@ -2,6 +2,8 @@ Home::Application.routes.draw do
 
 
 
+  resources :servicos
+
   resources :reservas
 
   resources :arquivos

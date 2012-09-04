@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :apartamento_id, :role_ids,
                   :photo, :photo_content_type, :photo_file_name, :photo_file_size, :photo_updated_at,
-                  :sign_in_count, :confirmation_sent_at, :confirmed_at
+                  :sign_in_count, :confirmation_sent_at, :confirmed_at, :telefone
   # attr_accessible :title, :body
 
   belongs_to :apartamento

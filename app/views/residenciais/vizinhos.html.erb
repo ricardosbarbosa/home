@@ -14,7 +14,8 @@
         </td>
         <td>
           <%= user.apartamento.numero %> <br />
-          <%= user.email %>
+          Email: <%= user.email %> <br />
+          Telefone: <%= user.telefone %>
           <% if has_role? :porteiro %>
               <%= user.sign_in_count %>  <br />
               <%=l user.confirmation_sent_at %>  <br />

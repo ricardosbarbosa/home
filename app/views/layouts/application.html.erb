@@ -154,7 +154,7 @@
                         <li><%= link_to arquivos_path do %> <i class="icon-file" ></i><%= "Arquivos"%> <% end %></li>
                         <li><%= link_to reservas_path do %><i class="icon-hand-up" ></i><%= "Reservas" %>  <%=  current_user.apartamento.residencial.numero_de_reservas_aguardando_aprovacao if has_role? :sindico %><% end %> </li>
                         <li><%= link_to residencial_vizinhos_path(current_user.apartamento.residencial) do %> <i class="icon-heart" ></i><%= "Vizinhos"%> <% end %></li>
-
+                        <li><%= link_to servicos_path do %> <i class="icon-search" ></i><%= "Servicos"%> <% end %></li>
                       </ul>
                   <% end %>
                 </div><!--/.well -->
@@ -168,7 +168,7 @@
 
                     </li>
 
-                  <%  if user_signed_in? and current_user.apartamento %>
+                  <%  if user_signed_in? and current_user.apartamento and @comentarios_da_regiao %>
                       <% @comentarios_da_regiao.each do |comentario| %>
 
                                 <a href="#"
