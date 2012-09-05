@@ -11,6 +11,11 @@ gem 'devise'
 gem "declarative_authorization"
 gem 'twitter-bootstrap-rails'#, :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
+gem "rghost", ">=0.8.7.6"
+gem "rghost_barcode"
+gem "parseline"
+gem "brcobranca", :git => "git://github.com/kivanio/brcobranca.git", :branch => "master"
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

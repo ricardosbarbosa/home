@@ -155,6 +155,7 @@
                         <li><%= link_to reservas_path do %><i class="icon-hand-up" ></i><%= "Reservas" %>  <%=  current_user.apartamento.residencial.numero_de_reservas_aguardando_aprovacao if has_role? :sindico %><% end %> </li>
                         <li><%= link_to residencial_vizinhos_path(current_user.apartamento.residencial) do %> <i class="icon-heart" ></i><%= "Vizinhos"%> <% end %></li>
                         <li><%= link_to servicos_path do %> <i class="icon-search" ></i><%= "Servicos"%> <% end %></li>
+                        <li><%= link_to home_path do %> <i class="icon-list-alt" ></i><%= "Boleto Pagamento"%> <% end %></li>
                       </ul>
                   <% end %>
                 </div><!--/.well -->

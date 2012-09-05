@@ -1,6 +1,10 @@
 Home::Application.routes.draw do
 
-
+  match '/home' =>'home#index'
+  match '/home/gerar_boleto/:banco' =>'home#gerar_boleto'
+  match '/home/boleto_hash' =>'home#boleto_hash'
+  match '/home/boleto_em_bloco' =>'home#boleto_em_bloco'
+  match '/home/multi_boleto' =>'home#multi_boleto'
 
   resources :servicos
 
