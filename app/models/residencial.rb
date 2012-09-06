@@ -1,6 +1,6 @@
 # encoding: utf-8
 class Residencial < ActiveRecord::Base
-  attr_accessible :nome, :regiao
+  attr_accessible :nome, :regiao, :cnpj, :banco, :agencia, :conta
 
   validates_presence_of :nome, :regiao
 

@@ -25,6 +25,42 @@
       </div>
     </div>
 
+
+    <div class="control-group">
+      <%= f.label :cnpj, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :cnpj, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :banco, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.select :banco, {"Banco do Brasil" => "bb", 
+          "Bradesco" => "bradesco", 
+          "Caixa Econômica Federal" => "caixa",
+          "HSBC" => "hsbc",
+          "Itaú" => "itau",
+          "Banco Real" => "real",
+          "Unibanco" => "unibanco"}
+          %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :agencia, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :agencia, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :conta, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :conta, :class => 'text_field' %>
+      </div>
+    </div>
+
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

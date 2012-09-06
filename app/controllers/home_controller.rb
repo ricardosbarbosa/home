@@ -25,14 +25,16 @@ class HomeController < ApplicationController
     end
 
     #dados do condominio
-    @boleto.cedente = "Kivanio Barbosa"  #dados do conominio
-    @boleto.documento_cedente = "12345678912"
-    @boleto.agencia = "4042"
-    @boleto.conta_corrente = "61900"
+    residencial = current_user.apartamento.residencial
+
+    @boleto.cedente = residencial.nome  #dados do conominio
+    @boleto.documento_cedente = residencial.cnpj
+    @boleto.agencia = residencial.agencia
+    @boleto.conta_corrente = residencial.conta
 
     # dados do condomino (usuario logado)
-    @boleto.sacado = "Claudio Pozzebom"  #condomino
-    @boleto.sacado_documento = "12345678900"
+    @boleto.sacado = current_user.email  #condomino
+    @boleto.sacado_documento = "????"
 
     @boleto.valor = 600.00
 
@@ -87,10 +89,11 @@ class HomeController < ApplicationController
   end
 
   def boleto_hash
-    @boleto = Brcobranca::Boleto::BancoBrasil.new :cedente => "Kivanio Barbosa",
-    :documento_cedente => "12345678912",
-    :sacado => "Claudio Pozzebom",
-    :sacado_documento => "12345678900",
+    residencial = current_user.apartamento.residencial
+    @boleto = Brcobranca::Boleto::BancoBrasil.new :cedente => residencial.nome,
+    :documento_cedente => residencial.cnpj,
+    :sacado => current_user.email,
+    :sacado_documento => "????",
     :valor => 135.00,
     :agencia => "4042",
     :conta_corrente => "61900",
