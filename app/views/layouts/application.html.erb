@@ -85,7 +85,7 @@
           <div class="container nav-collapse">
             <%  if user_signed_in? %>
                 <ul class="nav">
-                  <!--<li><%= link_to  "Residenciais", residenciais_path if  (permitted_to? :create, :residenciais) %></li>-->
+                 <!--  <li class="active"><%= link_to  "Mensagens", nil %></li>  -->
                 </ul>
                 <ul class="nav pull-right">
                  <% if current_user.apartamento %>
@@ -134,6 +134,8 @@
     <div class="container">
       <div class="content">
 
+        
+
           <%  if user_signed_in? %>
               <div class="span3">
                 <div class="well sidebar-nav">
@@ -146,13 +148,22 @@
                   <% end %>
 
                   <% if has_role? :condomino or has_role? :sindico %>
+                  
                       <ul class="nav nav-list">
-                        <li class="nav-header">Menu</li>
+                        
+                        <!-- <li class="nav-header">Menu</li> -->
                         <li><%= link_to root_path do %><i class="icon-home" ></i><%= "Home" %> <% end %></li>
                         <li><%= link_to edit_residencial_apartamento_user_path(current_user.apartamento.residencial,current_user.apartamento,current_user) do %> <i class="icon-user" /></i><%= "Perfil"%> <% end if permitted_to? :edit, current_user %></li>
                         <li><%= link_to eventos_path do %><i class="icon-calendar" ></i><%= "Eventos" %> <% end %></li>
                         <li><%= link_to arquivos_path do %> <i class="icon-file" ></i><%= "Arquivos"%> <% end %></li>
-                        <li><%= link_to reservas_path do %><i class="icon-hand-up" ></i><%= "Reservas" %>  <%=  current_user.apartamento.residencial.numero_de_reservas_aguardando_aprovacao if has_role? :sindico %><% end %> </li>
+                        <li><%= link_to reservas_path do %><i class="icon-hand-up" ></i><%= "Reservas" %>
+                          <% if has_role? :sindico %>
+                          <span class="badge badge-warning">
+                            <%= current_user.apartamento.residencial.numero_de_reservas_aguardando_aprovacao  %>
+                          </span>
+                          <% end %>
+                           <% end %>
+                       </li>
                         <li><%= link_to residencial_vizinhos_path(current_user.apartamento.residencial) do %> <i class="icon-heart" ></i><%= "Vizinhos"%> <% end %></li>
                         <li><%= link_to servicos_path do %> <i class="icon-search" ></i><%= "Servicos"%> <% end %></li>
                         <li><%= link_to home_path do %> <i class="icon-list-alt" ></i><%= "Boleto Pagamento"%> <% end %></li>

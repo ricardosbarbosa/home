@@ -23,12 +23,15 @@
         <%= image_tag "profile_m.gif", :size => "80x80" unless current_user.photo_file_name %>
         <%= image_tag current_user.photo.url(:small) , :size => "70x70" if current_user.photo_file_name %>
         <%= f.text_area :conteudo, :class => 'text_area textarea_comment', :rows => 3  %>
+        
+        <%= f.submit "Enviar", :class => 'btn btn-primary' %>
+
+        <span class="label label-important"> <%= f.check_box  :alerta %> Alerta</span>
+        <span class="label label-warning"><%= f.check_box  :postar_na_regiao %> Postar na regiao</span>
       </div>
-      <%= f.submit "mensagem", :class => 'btn btn-primary' %>
+      
 
-      <span class="label label-important"> <%= f.check_box  :alerta %> Alerta</span>
-      <span class="label label-warning"><%= f.check_box  :postar_na_regiao %> Postar na regiao</span>
-
+      
 
     </div>
 <% end %>
