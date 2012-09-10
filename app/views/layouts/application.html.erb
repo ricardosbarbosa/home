@@ -133,7 +133,7 @@
 
     <div class="container">
       <div class="content">
-        <div class="row">
+
           <%  if user_signed_in? %>
               <div class="span3">
                 <div class="well sidebar-nav">
@@ -227,7 +227,7 @@
 
               </div><!--/span-->
           <% end %>
-           <div class="span9">
+           <div class="span6">
              <% flash.each do |name, msg| %>
                  <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
                    <a class="close" data-dismiss="alert">&#215;</a>
@@ -237,7 +237,13 @@
               <%= yield %>
             </div>
 
-        </div><!--/row-->
+          <%  if user_signed_in? %>
+          <div class="span2 well alert alert-info">
+                  Publicidade
+          </div>
+          <% end %>
+
+
       </div><!--/content-->
 
 

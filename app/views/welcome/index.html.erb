@@ -41,18 +41,8 @@
 <% @comentarios.each do |comentario| %>
     <div class="row-fluid">
 
-    <div class="span1">
-      <% if comentario.comentavel_type.eql? 'Evento' %>
-          <%= image_tag "icon-evento.png", :width => "60px", :height => "60px" %>
-      <% elsif comentario.comentavel_type.eql?  'Arquivo' %>
-          <%= image_tag "icon-file.png", :width => "60px", :height => "60px" %>
-      <% elsif comentario.alerta %>
-          <%= image_tag "icon-alert.png", :width => "60px", :height => "60px" %>
-      <% else %>
-          <%= image_tag "icon-chat.png", :width => "60px", :height => "60px" %>
-      <% end %>
-    </div>
-    <div class="span11 well <% if comentario.alerta %>alert alert-error <% end %>">
+
+    <div class="well alert <% if comentario.alerta %>alert-error <% end %>">
 
 
       <span class="label label-warning">
@@ -112,8 +102,11 @@
 
         </p>
       <% comentario.comentarios.each do |c| %>
-          <div style="background-color: #daecee;">
+          <hr style="margin: -5px 0 3px 0px;border-color: #ffffff; border-bottom-width: 0;"/>
+          <div style="background-color: ;">
+
           <p>
+
             <a href="#"
                rel="popover"
                data-content="Apartamento: <%= comentario.user.apartamento.numero %>"
