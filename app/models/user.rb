@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_private_messages
+  
   # Include default devise modules. Others available are:
   # :token_authenticatable,  :registerable,
   # :lockable, and :omniauthable

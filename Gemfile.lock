@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/jongilbraith/simple-private-messages.git
+  revision: adf783407d924d3d94f33ec50912c65f8cdf5770
+  specs:
+    simple-private-messages (0.0.0)
+
+GIT
   remote: git://github.com/kivanio/brcobranca.git
   revision: 04fe5272cbb9ed5b8f14bc51c7d7b5ae2baa4a22
   branch: master
@@ -166,6 +172,7 @@ DEPENDENCIES
   rghost (>= 0.8.7.6)
   rghost_barcode
   sass-rails (~> 3.2.4)
+  simple-private-messages (= 0.0.0)!
   therubyracer
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)

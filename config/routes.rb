@@ -1,5 +1,7 @@
 Home::Application.routes.draw do
 
+  
+
   match '/home' =>'home#index'
   match '/home/gerar_boleto/:banco' =>'home#gerar_boleto'
   match '/home/boleto_hash' =>'home#boleto_hash'
@@ -18,7 +20,16 @@ Home::Application.routes.draw do
 
   devise_for :users
 
-  resources :users
+
+
+  resources :users do
+     resources :messages do
+       collection do
+         post :delete_selected
+       end
+     end
+  end
+ 
 
   resources :residenciais do
     get "vizinhos"

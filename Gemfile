@@ -15,6 +15,7 @@ gem "rghost", ">=0.8.7.6"
 gem "rghost_barcode"
 gem "parseline"
 gem "brcobranca", :git => "git://github.com/kivanio/brcobranca.git", :branch => "master"
+gem 'simple-private-messages', '0.0.0', :git => 'git://github.com/jongilbraith/simple-private-messages.git'
 
 # Gems used only for assets and not required
 # in production environments by default.
