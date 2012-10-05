@@ -46,4 +46,10 @@ class User < ActiveRecord::Base
   def has_role? role
     role_symbols.include?(role)
   end
+
+  def numero_de_mensagens_unread
+    received_messages.where("recipient_id = ? AND read_at IS NULL and recipient_deleted = ?", self, false).count
+
+
+  end
 end

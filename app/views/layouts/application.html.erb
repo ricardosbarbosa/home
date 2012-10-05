@@ -167,7 +167,12 @@
                         <li><%= link_to residencial_vizinhos_path(current_user.apartamento.residencial) do %> <i class="icon-heart" ></i><%= "Vizinhos"%> <% end %></li>
                         <li><%= link_to servicos_path do %> <i class="icon-search" ></i><%= "Servicos"%> <% end %></li>
                         <li><%= link_to home_path do %> <i class="icon-list-alt" ></i><%= "Boleto Pagamento"%> <% end %>
-                          <li><%= link_to user_messages_path(current_user) do %> <i class="icon-envelope" ></i><%= "Messagens Privadas" %> <% end %></li>
+                        <li><%= link_to user_messages_path(current_user) do %> <i class="icon-envelope" ></i><%= "Messagens Privadas" %> 
+                          <span class="badge badge-warning">
+                            <%= current_user.numero_de_mensagens_unread  %>
+                          </span>
+                          <% end %>
+                        </li>
                       </ul>
                   <% end %>
                 </div><!--/.well -->
