@@ -64,6 +64,11 @@ authorization do
 
   end
 
+  role :comissao do
+    includes :guest
+    includes :sindico
+  end
+
    role :porteiro do
       has_permission_on [:reservas], :to => [:index ]
       has_permission_on [:residenciais], :to => [ :vizinhos]   do
