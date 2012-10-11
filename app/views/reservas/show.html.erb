@@ -14,7 +14,7 @@
 </dl>
 
 <div class="form-actions">
-  <%= link_to t('.back', :default => t("helpers.links.back")),
+  <%= link_to 'Voltar',
               reservas_path, :class => 'btn'  %>
   <%= link_to 'Editar',
               edit_reserva_path(@reserva), :class => 'btn' if permitted_to? :edit, @reserva %>
