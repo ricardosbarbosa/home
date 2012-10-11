@@ -1,4 +1,16 @@
 <%= form_for @servico, :html => { :class => 'form-horizontal' } do |f| %>
+
+    <% if @servico.errors.any? %>
+        <div id="error_explanation" class="alert alert-error">
+          <h2><%= pluralize(@servico.errors.count, "erro") %>:</h2>
+
+          <ul>
+            <% @servico.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
   <div class="control-group">
     <%= f.label :nome, :class => 'control-label' %>
     <div class="controls">
