@@ -8,5 +8,9 @@ class Message < ActiveRecord::Base
   # uncomment it if using it or you can remove it if not
   attr_accessor :to
 
-  
+  validates_presence_of :subject
+  validates_presence_of :body
+  validates_presence_of :to
+
+
 end
