@@ -29,9 +29,9 @@
         <td><%= servico.endereco %></td>
         <td><%= servico.detalhes %></td>
         <!--<td>-->
-          <% link_to Editar,
+          <% link_to 'Editar',
                       edit_servico_path(servico), :class => 'btn btn-mini' %>
-          <% link_to Excluir,
+          <% link_to 'Excluir',
 #                      servico_path(servico),
 #                      :method => :delete,
 #                      :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Confirmar?')),

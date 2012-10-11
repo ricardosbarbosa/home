@@ -23,9 +23,9 @@
               <%=l user.created_at %>
           <% end %>
           <td>
-            <%= link_to Editar,
+            <%= link_to 'Editar',
                         edit_residencial_apartamento_user_path(user.apartamento.residencial,user.apartamento,user), :class => 'btn btn-mini' if permitted_to? :edit, user %>
-            <%= link_to Excluir,
+            <%= link_to 'Excluir',
                         residencial_apartamento_user_path(user.apartamento.residencial,user.apartamento,user),
                         :method => :delete,
                         :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Confirmar?')),

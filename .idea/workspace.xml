@@ -4,25 +4,21 @@
     <list default="true" id="c341f0b0-5ae8-43d3-a9b0-362b8098ae27" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/apartamentos/index.html.erb" afterPath="$PROJECT_DIR$/app/views/apartamentos/index.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/apartamentos/show.html.erb" afterPath="$PROJECT_DIR$/app/views/apartamentos/show.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/areas/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/areas/_form.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/areas/index.html.erb" afterPath="$PROJECT_DIR$/app/views/areas/index.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/areas/show.html.erb" afterPath="$PROJECT_DIR$/app/views/areas/show.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/arquivos/index.html.erb" afterPath="$PROJECT_DIR$/app/views/arquivos/index.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/arquivos/show.html.erb" afterPath="$PROJECT_DIR$/app/views/arquivos/show.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/comentarios/index.html.erb" afterPath="$PROJECT_DIR$/app/views/comentarios/index.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/comentarios/show.html.erb" afterPath="$PROJECT_DIR$/app/views/comentarios/show.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/devise/registrations/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/devise/registrations/edit.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/eventos/index.html.erb" afterPath="$PROJECT_DIR$/app/views/eventos/index.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/eventos/show.html.erb" afterPath="$PROJECT_DIR$/app/views/eventos/show.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/reservas/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/reservas/_form.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/reservas/index.html.erb" afterPath="$PROJECT_DIR$/app/views/reservas/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/reservas/new.html.erb" afterPath="$PROJECT_DIR$/app/views/reservas/new.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/reservas/show.html.erb" afterPath="$PROJECT_DIR$/app/views/reservas/show.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/residenciais/index.html.erb" afterPath="$PROJECT_DIR$/app/views/residenciais/index.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/residenciais/show.html.erb" afterPath="$PROJECT_DIR$/app/views/residenciais/show.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/residenciais/vizinhos.html.erb" afterPath="$PROJECT_DIR$/app/views/residenciais/vizinhos.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/servicos/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/servicos/_form.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/servicos/index.html.erb" afterPath="$PROJECT_DIR$/app/views/servicos/index.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/servicos/show.html.erb" afterPath="$PROJECT_DIR$/app/views/servicos/show.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/users/index.html.erb" afterPath="$PROJECT_DIR$/app/views/users/index.html.erb" />
@@ -50,15 +46,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="_form.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/reservas/_form.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="61" selection-start="211" selection-end="211" vertical-scroll-proportion="-1.875">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="new.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/reservas/new.html.erb">
           <provider selected="true" editor-type-id="text-editor">
@@ -98,7 +85,7 @@
       <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/servicos/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="101" selection-start="1492" selection-end="1502" vertical-scroll-proportion="-11.25">
+            <state line="36" column="101" selection-start="1496" selection-end="1506" vertical-scroll-proportion="-11.25">
               <folding />
             </state>
           </provider>
@@ -107,7 +94,16 @@
       <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/apartamentos/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="22" selection-start="1180" selection-end="1180" vertical-scroll-proportion="0.33174226">
+            <state line="29" column="14" selection-start="1174" selection-end="1174" vertical-scroll-proportion="0.33174226">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/reservas/index.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="35" column="14" selection-start="1184" selection-end="1200" vertical-scroll-proportion="-6.875">
               <folding />
             </state>
           </provider>
@@ -116,7 +112,7 @@
       <file leaf-file-name="show.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/apartamentos/show.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="92" selection-start="939" selection-end="939" vertical-scroll-proportion="-12.5">
+            <state line="20" column="92" selection-start="943" selection-end="943" vertical-scroll-proportion="-12.5">
               <folding />
             </state>
           </provider>
@@ -125,7 +121,7 @@
       <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/areas/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="28" selection-start="739" selection-end="739" vertical-scroll-proportion="-4.7083335">
+            <state line="22" column="30" selection-start="741" selection-end="741" vertical-scroll-proportion="-4.7083335">
               <folding />
             </state>
           </provider>
@@ -134,7 +130,7 @@
       <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/arquivos/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="22" selection-start="864" selection-end="870" vertical-scroll-proportion="-11.208333">
+            <state line="26" column="24" selection-start="864" selection-end="872" vertical-scroll-proportion="-11.208333">
               <folding />
             </state>
           </provider>
@@ -153,7 +149,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/views/messages/new.html.erb" />
         <option value="$PROJECT_DIR$/app/views/messages/_sent.html.erb" />
         <option value="$PROJECT_DIR$/app/models/message.rb" />
         <option value="$PROJECT_DIR$/app/views/messages/_inbox.html.erb" />
@@ -168,6 +163,7 @@
         <option value="$PROJECT_DIR$/app/views/reservas/new.html.erb" />
         <option value="$PROJECT_DIR$/app/views/servicos/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/views/areas/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/reservas/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/apartamentos/index.html.erb" />
       </list>
     </option>
@@ -303,7 +299,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="arquivos" />
+              <option name="myItemId" value="reservas" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -732,13 +728,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/models/arquivo.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="21" selection-start="472" selection-end="472" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/apartamentos/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -811,35 +800,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/servicos/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="101" selection-start="1492" selection-end="1502" vertical-scroll-proportion="-11.25">
+        <state line="36" column="101" selection-start="1496" selection-end="1506" vertical-scroll-proportion="-11.25">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/apartamentos/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="92" selection-start="939" selection-end="939" vertical-scroll-proportion="-12.5">
+        <state line="20" column="92" selection-start="943" selection-end="943" vertical-scroll-proportion="-12.5">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/areas/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="28" selection-start="739" selection-end="739" vertical-scroll-proportion="-4.7083335">
+        <state line="22" column="30" selection-start="741" selection-end="741" vertical-scroll-proportion="-4.7083335">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/arquivos/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="22" selection-start="864" selection-end="870" vertical-scroll-proportion="-11.208333">
+        <state line="26" column="24" selection-start="864" selection-end="872" vertical-scroll-proportion="-11.208333">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/reservas/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="14" selection-start="1184" selection-end="1200" vertical-scroll-proportion="-6.875">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/apartamentos/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="22" selection-start="1180" selection-end="1180" vertical-scroll-proportion="0.33174226">
+        <state line="29" column="14" selection-start="1174" selection-end="1174" vertical-scroll-proportion="0.33174226">
           <folding />
         </state>
       </provider>

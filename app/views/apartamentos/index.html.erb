@@ -25,9 +25,9 @@
           <% end %>
         </td>
         <td>
-          <%= link_to Editar,
+          <%= link_to 'Editar',
                       edit_residencial_apartamento_path(apartamento.residencial, apartamento), :class => 'btn btn-mini' %>
-          <%= link_to Excluir,
+          <%= link_to 'Excluir',
                       residencial_apartamento_path(apartamento.residencial, apartamento),
                       :method => :delete,
                       :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Confirmar?')),

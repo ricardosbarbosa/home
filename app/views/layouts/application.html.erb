@@ -206,7 +206,7 @@
                                 <b><%= comentario.titulo %> </b><%= comentario.conteudo %>
                                 <span style="font-size: x-small;color: #999999;"> <%= time_ago_in_words(comentario.created_at) %> </span>
 
-                                <%= link_to Excluir,
+                                <%= link_to 'Excluir',
                                             comentario_path(comentario),
                                             :method => :delete,
                                             :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Confirmar?')),

@@ -24,9 +24,9 @@
         <td><%= link_to residencial.areas.length , residencial_areas_path(residencial) %></td>
         <td><%=l residencial.created_at %></td>
         <td>
-          <%= link_to Editar,
+          <%= link_to 'Editar',
                       edit_residencial_path(residencial), :class => 'btn btn-mini' %>
-          <%= link_to Excluir,
+          <%= link_to 'Excluir',
                       residencial_path(residencial),
                       :method => :delete,
                       :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Confirmar?')),

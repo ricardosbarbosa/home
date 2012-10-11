@@ -24,9 +24,9 @@
     <%= link_to "Baixar arquivo", arquivo.file.url %><br />
 
     <%= link_to "Comentários", arquivo %><br />
-    <%= link_to Editar,
+    <%= link_to 'Editar',
                 edit_arquivo_path(arquivo), :class => 'btn btn-mini' if permitted_to? :edit, arquivo %>
-    <%= link_to Excluir,
+    <%= link_to 'Excluir',
                 arquivo_path(arquivo),
                 :method => :delete,
                 :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Confirmar?')),

@@ -68,9 +68,9 @@
             <td><%=l reserva.data %></td>
             <td><%=l reserva.created_at %></td>
             <td>
-              <%= link_to Editar,
+              <%= link_to 'Editar',
                           edit_reserva_path(reserva), :class => 'btn btn-mini' if permitted_to? :edit, reserva %>
-              <%= link_to Excluir,
+              <%= link_to 'Excluir',
                           reserva_path(reserva),
                           :method => :delete,
                           :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Confirmar?')),

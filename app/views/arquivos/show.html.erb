@@ -17,9 +17,9 @@
       <span style="color:black;"><%= @arquivo.descricao %> </span><br />
 
       <%= link_to "Baixar arquivo", @arquivo.file.url %><br />
-      <%= link_to Editar,
+      <%= link_to 'Editar',
                   edit_arquivo_path(@arquivo), :class => 'btn'if permitted_to? :edit, @arquivo %>
-      <%= link_to Excluir,
+      <%= link_to 'Excluir',
                   arquivo_path(@arquivo),
                   :method => 'delete',
                   :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Confirmar?')),
@@ -37,7 +37,7 @@
           <b><%= comentario.titulo %> </b><%= comentario.conteudo %>
           <span style="font-size: x-small;color: #999999;"><%= time_ago_in_words(comentario.created_at) %>  </span>
 
-          <%= link_to Excluir,
+          <%= link_to 'Excluir',
                       comentario_path(comentario),
                       :method => :delete,
                       :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Confirmar?')),
@@ -50,7 +50,7 @@
               <%= image_tag c.user.photo.url(:small) , :size => "30x30" if c.user.photo_file_name %>
               <b><%= c.titulo %> </b><%= c.conteudo %>
               <span style="font-size: x-small;color: #999999;"> <%= time_ago_in_words(c.created_at) %> </span>
-              <%= link_to Excluir,
+              <%= link_to 'Excluir',
                           comentario_path(c),
                           :method => :delete,
                           :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Confirmar?')),

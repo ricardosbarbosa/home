@@ -23,9 +23,9 @@
           <span style="color:red; font-size: xx-large; font-weight: bold;"><%=  evento.titulo  %> </span><br />
           <span style="color:black;"><%=  evento.descricao  %> </span>  <br />
           <%= link_to "Comentários", evento %><br />
-          <%= link_to Editar,
+          <%= link_to 'Editar',
                       edit_evento_path(evento), :class => 'btn btn-mini' if permitted_to? :edit, evento %>
-          <%= link_to Excluir,
+          <%= link_to 'Excluir',
                       evento_path(evento),
                       :method => :delete,
                       :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Confirmar?')),
