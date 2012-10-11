@@ -11,6 +11,7 @@ authorization do
   role :guest do
     has_permission_on [:servicos], :to => [:index, :show]
     has_permission_on [:residenciais], :to => [ :registro]
+    has_permission_on [:residenciais, :apartamentos, :user], :to => [ :create]
   end
 
   role :condomino do

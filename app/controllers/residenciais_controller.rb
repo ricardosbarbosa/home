@@ -42,13 +42,44 @@ class ResidenciaisController < ApplicationController
   # POST /residenciais
   # POST /residenciais.json
   def create
-    @residencial = Residencial.new(params[:residencial])
+
+    if params[:residencial_nome]
+      @residencial = Residencial.new
+      @residencial.nome = params[:residencial_nome]
+
+
+    else
+      @residencial = Residencial.new(params[:residencial])
+    end
+
+
+
 
     respond_to do |format|
       if @residencial.save
-        format.html { redirect_to @residencial, notice: 'Residencial was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Residencial was successfully created.' }
         format.json { render json: @residencial, status: :created, location: @residencial }
-      else
+
+        if params[:residencial_nome]
+
+          @apartamento = @residencial.apartamentos.build(params[:apartamento])
+          @apartamento.numero = '000'
+          if @apartamento.save
+            @sindico = @apartamento.users.build(params[:user])
+
+            @sindico.email = params[:email]
+            role = Role.find_by_nome("sindico")
+            @sindico.roles << role
+            password = (0...4).map{ ('a'..'z').to_a[rand(26)] }.join
+            password << (0...4).map{ (0..9).to_a[rand(10)] }.join
+            @sindico.password =  password
+
+            @sindico.save
+          end
+
+        end
+
+        else
         format.html { render action: "new" }
         format.json { render json: @residencial.errors, status: :unprocessable_entity }
       end

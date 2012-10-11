@@ -2,7 +2,7 @@
 class Residencial < ActiveRecord::Base
   attr_accessible :nome, :regiao, :cnpj, :banco, :agencia, :conta
 
-  validates_presence_of :nome, :regiao
+  validates_presence_of :nome#, :regiao
 
   has_many :apartamentos, :dependent => :destroy
   has_many :areas, :dependent => :destroy
