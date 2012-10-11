@@ -6,7 +6,7 @@ class Message < ActiveRecord::Base
   
   # The :to accessor is used by the scaffolding,
   # uncomment it if using it or you can remove it if not
-  attr_accessor :to, :subject, :body
+  attr_accessor :to
 
   
 end

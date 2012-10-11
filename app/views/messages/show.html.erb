@@ -1,13 +1,15 @@
-<p><strong>From:</strong> <%= @message.sender == @user ? link_to("You", user_path(@user)) : link_to(h(@message.sender.email), user_path(@message.sender)) %></p>
-<p><strong>Received:</strong> <%= @message.created_at.to_s(:long) %></p>
-<p><strong>To:</strong> <%= @message.recipient == @user ? link_to("You", user_path(@user)) : link_to(h(@message.recipient.email), user_path(@message.recipient)) %></p>
+<p><strong>Enviada por:</strong> <%= @message.sender == @user ? link_to("Você", user_path(@user)) : link_to(h(@message.sender.email), user_path(@message.sender)) %></p>
+<p><strong>Recebida em:</strong> <%= @message.created_at.to_s(:long) %></p>
+<p><strong>Para:</strong> <%= @message.recipient == @user ? link_to("Você", user_path(@user)) : link_to(h(@message.recipient.email), user_path(@message.recipient)) %></p>
 <p>
-  <strong>Message</strong><br />
+  <strong>Assunto</strong>: <%= @message.subject %></strong>
+  <br /><br />
+  <strong>Mensagem</strong><br />
   <%=h @message.body %>
 </p>
 <p>
   <% if @message.recipient == @user %>
-	  <%= link_to "Reply", new_user_message_path(@user, :reply_to => @message) %> |
+	  <%= link_to "Responder", new_user_message_path(@user, :reply_to => @message) %> |
   <% end %>
-  <%= link_to "Inbox", user_messages_path(@user)%>
+  <%= link_to "Caixa de Entrada", user_messages_path(@user)%>
 </p>

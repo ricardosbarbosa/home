@@ -3,7 +3,7 @@
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 </div>
 <div style="float: none;">
-  <%= link_to t('.new', :default => t("helpers.links.new")),
+  <%= link_to "Novo",
               new_evento_path,
               :class => 'btn btn-primary' if permitted_to? :new, Evento.new %>
 </div>

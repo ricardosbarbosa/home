@@ -42,6 +42,6 @@
   </tbody>
 </table>
 
-<%= link_to t('.new', :default => t("helpers.links.new")),
+<%= link_to "Novo",
             new_servico_path,
             :class => 'btn btn-primary' if permitted_to? :new, Servico.new %>
