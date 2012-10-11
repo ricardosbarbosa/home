@@ -1,0 +1,108 @@
+<%  if user_signed_in? and current_user.apartamento and (permitted_to? :create, Comentario.new) %>
+<%= form_for @comentario, :html => { :class => 'form-vertical', :style => "margin-top: -17px" } do |f| %>
+    <% if @comentario.errors.any? %>
+        <div id="error_explanation" class="alert alert-error">
+          <h2><%= pluralize(@comentario.errors.count, "erro") %>:</h2>
+
+          <ul>
+            <% @comentario.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <!--<div class="control-group">-->
+      <!--<div class="controls">-->
+        <!--<%= f.text_field :titulo, :class => 'text_field' %>-->
+      <!--</div>-->
+    <!--</div>-->
+
+    <div class="form-actions">
+      <div class="controls">
+        <%= image_tag "profile_m.gif", :size => "80x80" unless current_user.photo_file_name %>
+        <%= image_tag current_user.photo.url(:small) , :size => "70x70" if current_user.photo_file_name %>
+        <%= f.text_area :conteudo, :class => 'text_area textarea_comment', :rows => 3  %>
+        
+        <%= f.submit "Enviar", :class => 'btn btn-primary' %>
+
+        <span class="label label-important"> <%= f.check_box  :alerta %> Alerta</span>
+        <span class="label label-warning"><%= f.check_box  :postar_na_regiao %> Postar na regiao</span>
+      </div>
+      
+
+      
+
+    </div>
+<% end %>
+<% else %>
+  <br/>
+<% end %>
+
+<%  if user_signed_in? and current_user.apartamento %>
+
+<% @comentarios.each do |comentario| %>
+    <div class="row-fluid">
+
+
+    <div class="well alert <% if comentario.alerta %>alert-error <% end %>">
+        <% if comentario.comentavel_type.eql? 'Evento' %>
+          <div style="">
+
+            EVENTO -
+            <span style="color:black; font-size: large; font-weight: bold;"><%=  comentario.evento.data_e_hora.strftime('%d %b %Y %I:%M %p') %> </span> -
+              <span style="color:black; font-size: large; font-weight: bold;"><%=  comentario.evento.titulo  %> </span> -
+              <span style="color:black;"><%=  comentario.evento.descricao  %> </span>
+
+          </div>
+          <br />
+
+
+
+        <% elsif comentario.comentavel_type.eql?  'Arquivo' %>
+
+            <div style="">
+              ARQUIVO -
+                <span style="color:black; font-size:large; font-weight: bold;"> <%= comentario.arquivo.titulo %></span> -
+                <span style="color:black;"><%= comentario.arquivo.descricao %> </span> -
+                <%= link_to "Baixar arquivo", comentario.arquivo.file.url %><br />
+
+            </div>
+
+          <br />
+        <% end %>
+
+      <div style="float: none">
+        <a href="#" rel="popover" data-content="Apartamento: <%= comentario.user.apartamento.numero %>" data-original-title="<%= comentario.user.email %>">
+          <%= image_tag "profile_m.gif", :size => "30x30" unless comentario.user.photo_file_name %>
+          <%= image_tag comentario.user.photo.url(:small) , :size => "30x30" if comentario.user.photo_file_name %>
+        </a>
+
+        <b><%= comentario.titulo %> </b><%= comentario.conteudo %>
+          <span style="font-size: x-small;color: #999999;"> <%= time_ago_in_words(comentario.created_at) %> </span>
+
+            <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                        comentario_path(comentario),
+                        :method => :delete,
+                        :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+                        :class => 'btn btn-mini btn-danger' if permitted_to? :destroy, comentario %>
+                   <br />
+        <%= link_to "Comentários", comentario.comentavel %><br />
+        <%= comentario.comentavel_id %>
+        <%= comentario.comentavel_type %>
+
+      </div>
+
+    </div>
+
+
+
+
+
+
+
+    </div>
+    <% end %>
+<% end %>
+
+

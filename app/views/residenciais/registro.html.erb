@@ -17,7 +17,7 @@
 
     <% if @sindico.errors.any? %>
         <div id="error_explanation" class="alert alert-error">
-          <h2><%= pluralize(@sindico.errors.count, "error") %> prohibited this pessoa from being saved:</h2>
+          <h2><%= pluralize(@sindico.errors.count, "erro") %>:</h2>
 
           <ul>
             <% @sindico.errors.full_messages.each do |msg| %>

@@ -4,4 +4,8 @@ class Evento < ActiveRecord::Base
   belongs_to :user
   belongs_to :residencial
 
+
+  validates_presence_of :data_e_hora
+  validates_presence_of :descricao
+  validates_presence_of :titulo
 end

@@ -1,7 +1,7 @@
 <%= form_for [@residencial, @apartamento], :html => { :class => 'form-horizontal' } do |f| %>
     <% if @apartamento.errors.any? %>
         <div id="error_explanation" class="alert alert-error">
-          <h2><%= pluralize(@apartamento.errors.count, "error") %> prohibited this pessoa from being saved:</h2>
+          <h2><%= pluralize(@apartamento.errors.count, "erro") %>:</h2>
 
           <ul>
             <% @apartamento.errors.full_messages.each do |msg| %>

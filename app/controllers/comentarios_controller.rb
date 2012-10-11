@@ -48,11 +48,18 @@ class ComentariosController < ApplicationController
     @comentario = Comentario.new(params[:comentario])
     @comentario.user = current_user
 
+
+
     respond_to do |format|
       if @comentario.save
         #format.html { redirect_to @comentario, notice: 'Comentario was successfully created.' }
         format.html { redirect_to :back, notice: 'Comentario was successfully created.' }
         format.json { render json: @comentario, status: :created, location: @comentario }
+
+        if not @comentario.comentavel_id
+          @comentario.comentavel_id = @comentario.id
+          @comentario.comentavel_type = "TOPICO"
+        end
       else
         #format.html { render action: "new" }
         format.html { redirect_to root_path }
