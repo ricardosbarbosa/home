@@ -54,8 +54,10 @@
 <% else %>
 Não ha areas externas cadastradas para o residencial. <br />
 
+
+
+<% end %>
+
 <%= link_to "Cadastrar Nova Area",
             new_residencial_area_path(current_user.apartamento.residencial),
             :class => 'btn btn-primary' if permitted_to? :new, Area.new %>
-
-<% end %>
