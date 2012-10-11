@@ -91,4 +91,9 @@ class ResidenciaisController < ApplicationController
     .order("apartamentos.numero, email")
 
   end
+
+  def registro
+    @residencial = Residencial.new
+    @sindico = User.new
+  end
 end

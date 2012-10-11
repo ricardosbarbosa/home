@@ -30,8 +30,10 @@ Home::Application.routes.draw do
      end
   end
  
+match '/residenciais/registro' => 'residenciais#registro'
 
   resources :residenciais do
+    
     get "vizinhos"
 
     resources :apartamentos do
@@ -41,6 +43,8 @@ Home::Application.routes.draw do
 
 
   end
+
+
 
   get "welcome/index"
 

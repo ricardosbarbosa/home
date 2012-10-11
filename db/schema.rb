@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121005154810) do
+ActiveRecord::Schema.define(:version => 20121011175236) do
 
   create_table "apartamentos", :force => true do |t|
     t.string   "numero"
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(:version => 20121005154810) do
     t.datetime "updated_at",     :null => false
   end
 
+  add_index "areas", ["nome"], :name => "index_areas_on_nome"
+
   create_table "arquivos", :force => true do |t|
     t.string   "titulo"
     t.text     "descricao"
@@ -39,10 +41,16 @@ ActiveRecord::Schema.define(:version => 20121005154810) do
     t.datetime "file_updated_at"
   end
 
+  add_index "arquivos", ["residencial_id"], :name => "index_arquivos_on_residencial_id"
+  add_index "arquivos", ["titulo"], :name => "index_arquivos_on_titulo"
+
   create_table "assignments", :force => true do |t|
     t.integer "user_id"
     t.integer "role_id"
   end
+
+  add_index "assignments", ["role_id"], :name => "index_assignments_on_role_id"
+  add_index "assignments", ["user_id"], :name => "index_assignments_on_user_id"
 
   create_table "comentarios", :force => true do |t|
     t.string   "titulo"
@@ -56,6 +64,7 @@ ActiveRecord::Schema.define(:version => 20121005154810) do
     t.boolean  "postar_na_regiao"
   end
 
+  add_index "comentarios", ["alerta"], :name => "index_comentarios_on_alerta"
   add_index "comentarios", ["comentavel_id"], :name => "index_comentarios_on_comentavel_id"
   add_index "comentarios", ["comentavel_type"], :name => "index_comentarios_on_comentavel_type"
   add_index "comentarios", ["postar_na_regiao"], :name => "index_comentarios_on_postar_na_regiao"
@@ -69,6 +78,10 @@ ActiveRecord::Schema.define(:version => 20121005154810) do
     t.datetime "updated_at",     :null => false
     t.integer  "residencial_id"
   end
+
+  add_index "eventos", ["data_e_hora"], :name => "index_eventos_on_data_e_hora"
+  add_index "eventos", ["residencial_id"], :name => "index_eventos_on_residencial_id"
+  add_index "eventos", ["titulo"], :name => "index_eventos_on_titulo"
 
   create_table "messages", :force => true do |t|
     t.integer  "sender_id"
@@ -91,6 +104,11 @@ ActiveRecord::Schema.define(:version => 20121005154810) do
     t.datetime "updated_at", :null => false
   end
 
+  add_index "reservas", ["area_id"], :name => "index_reservas_on_area_id"
+  add_index "reservas", ["data"], :name => "index_reservas_on_data"
+  add_index "reservas", ["status"], :name => "index_reservas_on_status"
+  add_index "reservas", ["user_id"], :name => "index_reservas_on_user_id"
+
   create_table "residenciais", :force => true do |t|
     t.string   "nome"
     t.datetime "created_at", :null => false
@@ -102,11 +120,16 @@ ActiveRecord::Schema.define(:version => 20121005154810) do
     t.string   "conta"
   end
 
+  add_index "residenciais", ["nome"], :name => "index_residenciais_on_nome"
+  add_index "residenciais", ["regiao"], :name => "index_residenciais_on_regiao"
+
   create_table "roles", :force => true do |t|
     t.string   "nome"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "roles", ["nome"], :name => "index_roles_on_nome", :unique => true
 
   create_table "servicos", :force => true do |t|
     t.string   "nome"
@@ -118,6 +141,13 @@ ActiveRecord::Schema.define(:version => 20121005154810) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "servicos", ["detalhes"], :name => "index_servicos_on_detalhes"
+  add_index "servicos", ["endereco"], :name => "index_servicos_on_endereco"
+  add_index "servicos", ["nome"], :name => "index_servicos_on_nome"
+  add_index "servicos", ["regiao"], :name => "index_servicos_on_regiao"
+  add_index "servicos", ["telefone"], :name => "index_servicos_on_telefone"
+  add_index "servicos", ["tipo"], :name => "index_servicos_on_tipo"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
