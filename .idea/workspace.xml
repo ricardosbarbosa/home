@@ -2,41 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c341f0b0-5ae8-43d3-a9b0-362b8098ae27" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/message.rb" afterPath="$PROJECT_DIR$/app/models/message.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/apartamentos/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/apartamentos/edit.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/apartamentos/index.html.erb" afterPath="$PROJECT_DIR$/app/views/apartamentos/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/apartamentos/new.html.erb" afterPath="$PROJECT_DIR$/app/views/apartamentos/new.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/areas/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/areas/edit.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/areas/index.html.erb" afterPath="$PROJECT_DIR$/app/views/areas/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/areas/new.html.erb" afterPath="$PROJECT_DIR$/app/views/areas/new.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/arquivos/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/arquivos/edit.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/arquivos/index.html.erb" afterPath="$PROJECT_DIR$/app/views/arquivos/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/arquivos/new.html.erb" afterPath="$PROJECT_DIR$/app/views/arquivos/new.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/comentarios/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/comentarios/edit.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/comentarios/index.html.erb" afterPath="$PROJECT_DIR$/app/views/comentarios/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/comentarios/new.html.erb" afterPath="$PROJECT_DIR$/app/views/comentarios/new.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/eventos/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/eventos/edit.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/eventos/index.html.erb" afterPath="$PROJECT_DIR$/app/views/eventos/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/eventos/new.html.erb" afterPath="$PROJECT_DIR$/app/views/eventos/new.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/messages/_inbox.html.erb" afterPath="$PROJECT_DIR$/app/views/messages/_inbox.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/messages/_sent.html.erb" afterPath="$PROJECT_DIR$/app/views/messages/_sent.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/messages/new.html.erb" afterPath="$PROJECT_DIR$/app/views/messages/new.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/messages/show.html.erb" afterPath="$PROJECT_DIR$/app/views/messages/show.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/reservas/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/reservas/_form.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/reservas/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/reservas/edit.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/reservas/index.html.erb" afterPath="$PROJECT_DIR$/app/views/reservas/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/reservas/new.html.erb" afterPath="$PROJECT_DIR$/app/views/reservas/new.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/residenciais/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/residenciais/edit.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/residenciais/index.html.erb" afterPath="$PROJECT_DIR$/app/views/residenciais/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/residenciais/new.html.erb" afterPath="$PROJECT_DIR$/app/views/residenciais/new.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/residenciais/vizinhos.html.erb" afterPath="$PROJECT_DIR$/app/views/residenciais/vizinhos.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/servicos/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/servicos/edit.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/servicos/index.html.erb" afterPath="$PROJECT_DIR$/app/views/servicos/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/servicos/new.html.erb" afterPath="$PROJECT_DIR$/app/views/servicos/new.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/users/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/users/edit.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/users/index.html.erb" afterPath="$PROJECT_DIR$/app/views/users/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/users/new.html.erb" afterPath="$PROJECT_DIR$/app/views/users/new.html.erb" />
     </list>
     <ignored path="home.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -59,24 +25,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="vizinhos.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/residenciais/vizinhos.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/reservas/index.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="0" selection-start="144" selection-end="164" vertical-scroll-proportion="-1.3636364">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="_form.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/reservas/_form.html.erb">
           <provider selected="true" editor-type-id="text-editor">
@@ -104,10 +52,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="show.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="show.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/messages/show.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="14" selection-start="495" selection-end="495" vertical-scroll-proportion="0.2">
+            <state line="5" column="14" selection-start="495" selection-end="495" vertical-scroll-proportion="-1.3636364">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_form.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/users/_form.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="edit.html.erb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/users/edit.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="96" selection-start="121" selection-end="149" vertical-scroll-proportion="0.071599044">
               <folding />
             </state>
           </provider>
@@ -162,7 +128,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/db/migrate/20121011175236_add_alguns_index.rb" />
         <option value="$PROJECT_DIR$/app/views/welcome/index.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/comentarios_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/evento.rb" />
@@ -178,6 +143,7 @@
         <option value="$PROJECT_DIR$/app/models/message.rb" />
         <option value="$PROJECT_DIR$/app/views/messages/_inbox.html.erb" />
         <option value="$PROJECT_DIR$/app/views/messages/show.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/users/edit.html.erb" />
       </list>
     </option>
   </component>
@@ -347,6 +313,10 @@
               <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="users" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -363,10 +333,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="messages" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -813,20 +779,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/apartamentos/new.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="46" selection-start="203" selection-end="203" vertical-scroll-proportion="-1.875">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/eventos/edit.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="56" selection-start="201" selection-end="209" vertical-scroll-proportion="-1.875">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/apartamentos/edit.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="48" selection-start="206" selection-end="206" vertical-scroll-proportion="-1.875">
@@ -922,7 +874,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/messages/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="14" selection-start="495" selection-end="495" vertical-scroll-proportion="0.2">
+        <state line="5" column="14" selection-start="495" selection-end="495" vertical-scroll-proportion="-1.3636364">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/users/_form.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/users/edit.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="96" selection-start="121" selection-end="149" vertical-scroll-proportion="0.071599044">
           <folding />
         </state>
       </provider>
