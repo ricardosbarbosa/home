@@ -62,10 +62,10 @@ class ResidenciaisController < ApplicationController
 
         if params[:residencial_nome]
 
-          @apartamento = @residencial.apartamentos.build(params[:apartamento])
-          @apartamento.numero = '000'
+          @apartamento = @residencial.apartamentos.build()
+          @apartamento.numero = params[:apartamento]
           if @apartamento.save
-            @sindico = @apartamento.users.build(params[:user])
+            @sindico = @apartamento.users.build()
 
             @sindico.email = params[:email]
             role = Role.find_by_nome("sindico")

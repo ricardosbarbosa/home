@@ -29,10 +29,11 @@
 
     <div style="text-align: center; ">
     	<h1> Qual o nome do seu condomínio </h1>
-        <%= text_field_tag "residencial_nome", nil, :placeholder => "",:size => 100,
-        :style => 'margin: 10px; padding: 20px 10px 20px 10px; width: 400px; font-size: 40px; text-align: center;color: #3a87ad' %>
+      <%= text_field_tag "residencial_nome", nil, :placeholder => "",:size => 100,
+                         :style => 'margin: 10px; padding: 20px 10px 20px 10px; width: 400px; font-size: 40px; text-align: center;color: #3a87ad' %>
       <div class="control-group">
-	<%= email_field_tag "email", nil, :placeholder => "E-mail" %>
+        <%= text_field_tag "apartamento", nil, :placeholder => "Apto.: Ex: 101, A-204" , :style => 'text-align: center;'%>
+        <%= email_field_tag "email", nil, :placeholder => "E-mail" , :style => 'text-align: center;'%>
 </div>
 
 
