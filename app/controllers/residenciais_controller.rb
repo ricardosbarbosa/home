@@ -127,4 +127,8 @@ class ResidenciaisController < ApplicationController
     @residencial = Residencial.new
     @sindico = User.new
   end
+
+  def convite
+
+  end
 end

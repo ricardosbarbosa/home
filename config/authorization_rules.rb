@@ -64,6 +64,10 @@ authorization do
 
     has_permission_on [:reservas], :to => [:update, :edit ]
 
+    has_permission_on [:residenciais], :to => [ :convite ]   do
+      if_attribute :residencial_id => is { user.apartamento.residencial_id }
+    end
+
   end
 
   role :comissao do

@@ -29,12 +29,13 @@ Home::Application.routes.draw do
        end
      end
   end
- 
-match '/residenciais/registro' => 'residenciais#registro'
+
+  match '/registro' => 'residenciais#registro'
 
   resources :residenciais do
     
     get "vizinhos"
+    get "convite"
 
     resources :apartamentos do
        resources :users
