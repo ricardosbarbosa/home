@@ -100,6 +100,7 @@
                 </ul>
             <% else %>
 
+                <%= link_to "Registre Seu Condomínio", registro_path,  :class => "btn btn-info btn-mini" %>
                 <ul class="nav pull-right">
                   <li class="active">
                     <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => 'form-inline' }) do |f| %>
@@ -177,6 +178,12 @@
                             <%= current_user.numero_de_mensagens_unread  %>
                           </span>
                           <% end %>
+                        </li>
+
+                        <li>
+                          <%= link_to residencial_convite_path(current_user.apartamento.residencial) do %>
+                              <i class="icon-heart" ></i><%= "Convite" %>
+                          <% end  if has_role? :sindico  %>
                         </li>
                       </ul>
                   <% end %>

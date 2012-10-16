@@ -36,6 +36,7 @@ Home::Application.routes.draw do
     
     get "vizinhos"
     get "convite"
+    post "convite"
 
     resources :apartamentos do
        resources :users

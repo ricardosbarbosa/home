@@ -1,1 +1,27 @@
-convite
+<div style="background-color: #f5f5f5; padding: 0px 10px 10px 10px;" >
+
+  <%- model_class = Residencial -%>
+  <div class="page-header">
+
+  </div>
+  <%= form_tag(residencial_convite_path(@residencial), :method=>'post', :multipart => true) do  %>
+
+
+      <div style="text-align: center; ">
+
+        <div class="control-group">
+          <%= text_field_tag "apartamento", nil, :placeholder => "Apto.: Ex: 101, A-204" , :style => 'text-align: center;'%>
+          <%= email_field_tag "email", nil, :placeholder => "E-mail" , :style => 'text-align: center;'%>
+        </div>
+
+
+        <div class="form-actions">
+          <%= submit_tag 'Convidar' , :class => 'btn btn-primary'%>
+          <%= link_to 'Cancelar', residenciais_path, :class => 'btn' %>
+        </div>
+
+      </div>
+  <% end %>
+
+</div>
+

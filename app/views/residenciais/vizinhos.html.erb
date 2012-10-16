@@ -1,20 +1,66 @@
+<div class="page-header">
+  <h1>Convide seu vizinho</h1>
+</div>
+<div style="background-color: #f5f5f5; padding: 0px 10px 10px 10px;" >
+
+  <%= form_tag(residencial_convite_path(@residencial), :method=>'post', :multipart => true) do  %>
+
+      <div  class="alert alert-info">
+        Seu vizinho receberá um email para entrar no OiVizinho.com <br />
+      </div>
+
+      <div style="text-align: center; ">
+
+        <div class="control-group">
+          <%= text_field_tag "apartamento", nil, :placeholder => "Apto.: Ex: 101, A-204" , :style => 'text-align: center;'%>
+          <%= email_field_tag "email", nil, :placeholder => "E-mail" , :style => 'text-align: center;'%>
+        </div>
+        <div style="background-color: #b0c4de;">
+        <% @roles.each do |role| %>
+            <%= check_box_tag :role_ids, role.id, nil, :name => 'role_ids[]' %><%= role.nome.gsub!(/^[a-z]|\s+[a-z]/) { |a| a.upcase } %>
+        <% end %>
+        </div>
+        <div class="form-actions">
+          <%= submit_tag 'Convidar' , :class => 'btn btn-primary'%>
+          <%= link_to 'Cancelar', residenciais_path, :class => 'btn' %>
+        </div>
+
+
+
+      </div>
+  <% end %>
+
+</div>
+
 
 <div class="page-header">
   <h1>Vizinhos</h1>
 </div>
+<i class="icon-star" ></i><%= "Síndico" %>
+<i class="icon-star-empty" ></i><%= "Comissão" %>
+<i class="icon-user" ></i><%= "Condomino" %>
+<div class="row-fluid">
 
-<div class="row">
 <% @vizinhos.each do |user| %>
-      <div class="span3 well alert <%= "alert-info" if user.has_role? :sindico %>">
+      <div class="well" style="padding: 5px; float: left;min-width: 150px;">
 
-
-        <td>
+        <div style="float: none;">
           <%= image_tag "profile_m.gif", :size => "30x30" unless user.photo_file_name %>
           <%= image_tag user.photo.url(:small) , :size => "30x30" if user.photo_file_name %>
-        </td>
-        <td>
-          <%= user.apartamento.numero %> <br />
-          Email: <%= user.email %> <br />
+          <% if user.has_role? :sindico %>
+              <i class="icon-star" ></i>
+          <% end %>
+          <% if user.has_role? :condomino %>
+              <i class="icon-user" ></i>
+          <% end %>
+
+          <% if user.has_role? :comissao %>
+              <i class="icon-star-empty" ></i>
+          <% end %>
+          <%= user.apartamento.numero %>
+        </div>
+        <div style="float: none;">
+          <span>Email: <%= user.email %> </span><br />
           Telefone: <%= user.telefone %>
           <% if has_role? :porteiro %>
               <%= user.sign_in_count %>  <br />
@@ -22,26 +68,21 @@
               <%=l user.confirmed_at if user.confirmed_at %>    <br />
               <%=l user.created_at %>
           <% end %>
-          <td>
-            <%= link_to 'Editar',
-                        edit_residencial_apartamento_user_path(user.apartamento.residencial,user.apartamento,user), :class => 'btn btn-mini' if permitted_to? :edit, user %>
-            <%= link_to 'Excluir',
-                        residencial_apartamento_user_path(user.apartamento.residencial,user.apartamento,user),
-                        :method => :delete,
-                        :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Confirmar?')),
-                        :class => 'btn btn-mini btn-danger' if permitted_to? :destroy, user  %>
 
-          </td>
+          <%= link_to 'Editar', edit_residencial_apartamento_user_path(user.apartamento.residencial,user.apartamento,user), :class => 'btn btn-mini' if permitted_to? :edit, user %>
+          <%= link_to 'Excluir',
+                      residencial_apartamento_user_path(user.apartamento.residencial,user.apartamento,user),
+                      :method => :delete,
+                      :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Confirmar?')),
+                      :class => 'btn btn-mini btn-danger' if permitted_to? :destroy, user  %>
 
 
-          </div>
+        </div>
 
-
-
+      </div>
 
 
 <% end %>
 </div>
 
-      <br />
 

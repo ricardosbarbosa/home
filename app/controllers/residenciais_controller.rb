@@ -115,6 +115,8 @@ class ResidenciaisController < ApplicationController
   end
 
   def vizinhos
+    @roles = Role.where('nome != ? ', :admin)
+    @residencial = current_user.apartamento.residencial
     #@residencial = Residencial.find(params[:residencial_id])
     @vizinhos = User.
         joins(:apartamento => :residencial)
@@ -129,6 +131,45 @@ class ResidenciaisController < ApplicationController
   end
 
   def convite
+
+    @residencial = current_user.apartamento.residencial
+
+    if params[:email]
+
+
+      @apartamento = @residencial.apartamentos.build
+      @condomino = @apartamento.users.build()
+      @apartamento.numero = params[:apartamento]
+      if @apartamento.save(:validate => false)
+
+
+        @condomino.email = params[:email]
+
+        role_ids = params[:role_ids]
+
+        role_ids.each do |r_id|
+          role = Role.find(r_id)
+          @condomino.roles << role
+        end
+
+        #role = Role.find_by_nome("condomino")
+        #@condomino.roles << role
+
+        password = (0...4).map{ ('a'..'z').to_a[rand(26)] }.join
+        password << (0...4).map{ (0..9).to_a[rand(10)] }.join
+        @condomino.password =  password
+
+        respond_to do |format|
+          if @condomino.save
+            format.html { redirect_to :back, notice: 'Convite realizado com sucesso.' }
+            format.json { head :no_content }
+          else
+            format.html { redirect_to :back }
+            format.json { render json: @condomino.errors, status: :unprocessable_entity }
+          end
+        end
+      end
+    end
 
   end
 end
