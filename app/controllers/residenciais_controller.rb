@@ -57,7 +57,7 @@ class ResidenciaisController < ApplicationController
 
     respond_to do |format|
       if @residencial.save
-        format.html { redirect_to root_path, notice: 'Residencial was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Residencial foi criado com sucesso.' }
         format.json { render json: @residencial, status: :created, location: @residencial }
 
         if params[:residencial_nome]
@@ -93,7 +93,7 @@ class ResidenciaisController < ApplicationController
 
     respond_to do |format|
       if @residencial.update_attributes(params[:residencial])
-        format.html { redirect_to @residencial, notice: 'Residencial was successfully updated.' }
+        format.html { redirect_to @residencial, notice: 'Residencial foi atualiazado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

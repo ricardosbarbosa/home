@@ -52,8 +52,8 @@ class ComentariosController < ApplicationController
 
     respond_to do |format|
       if @comentario.save
-        #format.html { redirect_to @comentario, notice: 'Comentario was successfully created.' }
-        format.html { redirect_to :back, notice: 'Comentario was successfully created.' }
+        #format.html { redirect_to @comentario, notice: 'Comentario foi criado com sucesso.' }
+        format.html { redirect_to :back, notice: 'Comentario foi criado com sucesso.' }
         format.json { render json: @comentario, status: :created, location: @comentario }
 
         if not @comentario.comentavel_id
@@ -75,7 +75,7 @@ class ComentariosController < ApplicationController
 
     respond_to do |format|
       if @comentario.update_attributes(params[:comentario])
-        format.html { redirect_to @comentario, notice: 'Comentario was successfully updated.' }
+        format.html { redirect_to @comentario, notice: 'Comentario foi atualiazado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

@@ -53,8 +53,8 @@ class AreasController < ApplicationController
 
     respond_to do |format|
       if @area.save
-        #format.html { redirect_to [@area.residencial, @area], notice: 'Área was successfully updated.' }
-        format.html { redirect_to residencial_areas_url, notice: 'Área was successfully updated.' }
+        #format.html { redirect_to [@area.residencial, @area], notice: 'Área foi atualiazado com sucesso.' }
+        format.html { redirect_to residencial_areas_url, notice: 'Área foi atualiazado com sucesso.' }
 
         format.json { render json: @area, status: :created, location: @area }
       else
@@ -71,8 +71,8 @@ class AreasController < ApplicationController
 
     respond_to do |format|
       if @area.update_attributes(params[:area])
-        #format.html { redirect_to [@area.residencial, @area], notice: 'Área was successfully updated.' }
-        format.html { redirect_to residencial_areas_url, notice: 'Área was successfully updated.' }
+        #format.html { redirect_to [@area.residencial, @area], notice: 'Área foi atualiazado com sucesso.' }
+        format.html { redirect_to residencial_areas_url, notice: 'Área foi atualiazado com sucesso.' }
 
         format.json { head :no_content }
       else

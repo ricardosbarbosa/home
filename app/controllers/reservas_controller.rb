@@ -80,7 +80,7 @@ class ReservasController < ApplicationController
 
     respond_to do |format|
       if @reserva.save
-        format.html { redirect_to @reserva, notice: ' - Reserva was successfully created.' }
+        format.html { redirect_to @reserva, notice: ' - Reserva foi criado com sucesso.' }
         format.json { render json: @reserva, status: :created, location: @reserva }
       else
         format.html { render action: "new" }
@@ -96,7 +96,7 @@ class ReservasController < ApplicationController
 
     respond_to do |format|
       if @reserva.update_attributes(params[:reserva])
-        format.html { redirect_to @reserva, notice: 'Reserva was successfully updated.' }
+        format.html { redirect_to @reserva, notice: 'Reserva foi atualiazado com sucesso.' }
         format.json { head :no_content }
 
         UserMailer.reserva_atualizada(@reserva).deliver! if current_user.has_role? :sindico

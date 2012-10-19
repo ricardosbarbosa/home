@@ -51,8 +51,8 @@ class ApartamentosController < ApplicationController
 
     respond_to do |format|
       if @apartamento.save
-        #format.html { redirect_to [@apartamento.residencial, @apartamento], notice: 'Apartamento was successfully created.' }
-        format.html { redirect_to residencial_apartamentos_path, notice: 'Apartamento was successfully created.' }
+        #format.html { redirect_to [@apartamento.residencial, @apartamento], notice: 'Apartamento foi criado com sucesso.' }
+        format.html { redirect_to residencial_apartamentos_path, notice: 'Apartamento foi criado com sucesso.' }
         format.json { render json: @apartamento, status: :created, location: @apartamento }
       else
         format.html { render action: "new" }
@@ -68,8 +68,8 @@ class ApartamentosController < ApplicationController
 
     respond_to do |format|
       if @apartamento.update_attributes(params[:apartamento])
-        #format.html { redirect_to [@apartamento.residencial, @apartamento], notice: 'Apartamento was successfully updated.' }
-        format.html { redirect_to residencial_apartamentos_url, notice: 'Apartamento was successfully updated.' }
+        #format.html { redirect_to [@apartamento.residencial, @apartamento], notice: 'Apartamento foi atualiazado com sucesso.' }
+        format.html { redirect_to residencial_apartamentos_url, notice: 'Apartamento foi atualiazado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

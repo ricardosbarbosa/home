@@ -67,8 +67,8 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        #format.html { redirect_to [@user.apartamento.residencial, @user.apartamento, @user], notice: 'User was successfully created.' }
-        format.html { redirect_to residencial_apartamento_users_path, notice: 'User was successfully created.' }
+        #format.html { redirect_to [@user.apartamento.residencial, @user.apartamento, @user], notice: 'User foi criado com sucesso.' }
+        format.html { redirect_to residencial_apartamento_users_path, notice: 'User foi criado com sucesso.' }
         format.json { render json: @user, status: :created, location: @user }
 
         UserMailer.welcome_email(@user, password).deliver!
@@ -86,8 +86,8 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        #format.html { redirect_to [@user.apartamento.residencial, @user.apartamento, @user], notice: 'User was successfully updated.' }
-        format.html { redirect_to edit_residencial_apartamento_user_path(@user.apartamento.residencial, @user.apartamento, @user), notice: 'User was successfully updated.' }
+        #format.html { redirect_to [@user.apartamento.residencial, @user.apartamento, @user], notice: 'User foi atualiazado com sucesso.' }
+        format.html { redirect_to edit_residencial_apartamento_user_path(@user.apartamento.residencial, @user.apartamento, @user), notice: 'User foi atualiazado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

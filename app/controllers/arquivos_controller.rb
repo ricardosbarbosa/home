@@ -55,7 +55,7 @@ class ArquivosController < ApplicationController
 
     respond_to do |format|
       if @arquivo.save
-        format.html { redirect_to @arquivo, notice: 'Arquivo was successfully created.' }
+        format.html { redirect_to @arquivo, notice: 'Arquivo foi criado com sucesso.' }
         format.json { render json: @arquivo, status: :created, location: @arquivo }
 
         comentario = Comentario.new
@@ -81,7 +81,7 @@ class ArquivosController < ApplicationController
 
     respond_to do |format|
       if @arquivo.update_attributes(params[:arquivo])
-        format.html { redirect_to @arquivo, notice: 'Arquivo was successfully updated.' }
+        format.html { redirect_to @arquivo, notice: 'Arquivo foi atualiazado com sucesso.' }
         format.json { head :no_content }
 
         comentario = Comentario.new
