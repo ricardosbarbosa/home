@@ -16,6 +16,13 @@
    inflect.irregular 'reserva', 'reservas'
    inflect.irregular 'apartamento', 'apartamentos'
 
+   inflect.irregular 'conta', 'contas'
+   inflect.irregular 'movimentacao', 'movimentacoes'
+   inflect.irregular 'despesa', 'despesas'
+   inflect.irregular 'receita', 'receitas'
+   inflect.irregular 'transferencia', 'transferencias'
+
+
 
  end
 
