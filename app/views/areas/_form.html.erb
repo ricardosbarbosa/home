@@ -1,3 +1,5 @@
+
+
 <%= form_for [@residencial, @area], :html => { :class => 'form-horizontal' } do |f| %>
 
     <% if @area.errors.any? %>
@@ -14,11 +16,32 @@
 
 
     <div class="control-group">
-    <%= f.label :nome, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :nome, :class => 'text_field' %>
+      <%= f.label :nome, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :nome, :class => 'text_field' %>
+      </div>
     </div>
-  </div>
+
+    <div class="control-group">
+      <%= f.label :numero_maximo_de_reservas, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.number_field :numero_maximo_de_reservas, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :roles, :class => 'control-label' %>
+      <div class="controls">
+        <% Date::DAYNAMES.each do |dia| %>
+            <div>
+              <%= check_box_tag :dias, dia, @area.dias_para_reserva.include?(dia), :name => 'area[dias_para_reserva][]' %> <%= label_tag :dias, dia %>
+            </div>
+        <% end %>
+      </div>
+    </div>
+
+
+
   <!--<div class="control-group">-->
     <!--<%= f.label :residencial_id, :class => 'control-label' %>-->
     <!--<div class="controls">-->
@@ -27,6 +50,7 @@
   <!--</div>-->
 
   <div class="form-actions">
+
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to 'Cancelar',
                 residencial_areas_path, :class => 'btn' %>

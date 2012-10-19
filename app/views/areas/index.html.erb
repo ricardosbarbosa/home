@@ -7,6 +7,8 @@
     <tr>
 
       <th><%= model_class.human_attribute_name(:nome) %></th>
+      <th><%= model_class.human_attribute_name(:dias_para_reserva) %></th>
+      <th><%= model_class.human_attribute_name(:numero_maximo_de_reservas) %></th>
 
 
       <th><%=t '.actions', :default => 'Ações' %></th>
@@ -17,8 +19,8 @@
       <tr>
 
         <td><%= link_to area.nome, residencial_area_path(area.residencial, area) %></td>
-
-
+        <td><%=  area.dias_para_reserva %></td>
+        <td><%=  area.numero_maximo_de_reservas %></td>
         <td>
           <%= link_to 'Editar',
                       edit_residencial_area_path(area.residencial, area), :class => 'btn btn-mini' %>

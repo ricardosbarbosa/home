@@ -1,3 +1,13 @@
+
+
+<%= form_for @reserva, :action => :aprovar do |g| %>
+
+    <%= g.submit "Aprovar", :class => 'btn btn-info btn-primary' %>
+
+<% end %>
+
+
+
 <% if current_user.apartamento.residencial.areas  %>
     <% if @reserva.errors.any? %>
         <div id="error_explanation" class="alert alert-error">

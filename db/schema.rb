@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121019174008) do
+ActiveRecord::Schema.define(:version => 20121019175848) do
 
   create_table "apartamentos", :force => true do |t|
     t.string   "numero"
@@ -23,8 +23,10 @@ ActiveRecord::Schema.define(:version => 20121019174008) do
   create_table "areas", :force => true do |t|
     t.string   "nome"
     t.integer  "residencial_id"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
+    t.integer  "numero_maximo_de_reservas"
+    t.string   "dias_para_reserva",         :default => ""
   end
 
   add_index "areas", ["nome"], :name => "index_areas_on_nome"

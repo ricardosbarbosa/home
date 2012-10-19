@@ -80,7 +80,7 @@ class ReservasController < ApplicationController
 
     respond_to do |format|
       if @reserva.save
-        format.html { redirect_to @reserva, notice: ' - Reserva foi criado com sucesso.' }
+        format.html { redirect_to @reserva, notice: ' - Reserva foi criada com sucesso.' }
         format.json { render json: @reserva, status: :created, location: @reserva }
       else
         format.html { render action: "new" }
@@ -93,10 +93,11 @@ class ReservasController < ApplicationController
   # PUT /reservas/1.json
   def update
     @reserva = Reserva.find(params[:id])
+    @areas = current_user.apartamento.residencial.areas
 
     respond_to do |format|
       if @reserva.update_attributes(params[:reserva])
-        format.html { redirect_to @reserva, notice: 'Reserva foi atualiazado com sucesso.' }
+        format.html { redirect_to @reserva, notice: 'Reserva foi atualiazada com sucesso.' }
         format.json { head :no_content }
 
         UserMailer.reserva_atualizada(@reserva).deliver! if current_user.has_role? :sindico
@@ -117,5 +118,12 @@ class ReservasController < ApplicationController
       format.html { redirect_to reservas_url }
       format.json { head :no_content }
     end
+  end
+
+  def aprovar
+    @reserva = Reserva.find(params[:id])
+    @reserva.status = "Aprovado"
+    @reserva.save({:validate=>false})
+
   end
 end
