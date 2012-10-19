@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121011175236) do
+ActiveRecord::Schema.define(:version => 20121019174008) do
 
   create_table "apartamentos", :force => true do |t|
     t.string   "numero"
@@ -176,6 +176,7 @@ ActiveRecord::Schema.define(:version => 20121011175236) do
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
     t.string   "telefone"
+    t.string   "nome"
   end
 
   add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true
