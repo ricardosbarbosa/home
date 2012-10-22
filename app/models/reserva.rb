@@ -24,7 +24,7 @@ class Reserva < ActiveRecord::Base
 
   def validate_dia_nao_permitido
     if data
-      errors.add(:data, "Esse dia não é permitido. Apenas:" + area.dias_para_reserva) if not area.dias_para_reserva.include?(Date::DAYNAMES[data.wday])
+      errors.add(:data, "Esse dia não é permitido. Apenas: " + area.dias_para_reserva) if not area.dias_para_reserva.include?(Date::DAYNAMES[data.wday])
     end
   end
 
@@ -32,13 +32,14 @@ class Reserva < ActiveRecord::Base
 
     numero_de_reservas = Reserva
     .where(:area_id => area.id, :status => 'Aprovado')
-    .where("data > ?", data)
+    .where("data = ?", data)
     .count(:data)
 
     maximo_atingido = numero_de_reservas >= area.numero_maximo_de_reservas.to_i
+    #maximo_atingido = true
 
     if data
-      errors.add(:data, "Número máximo para essa data foi atingido:" + area.numero_maximo_de_reservas) if maximo_atingido
+      errors.add(:data, "Número máximo de reserva para essa data foi atingido: " +area.numero_maximo_de_reservas.to_s) if maximo_atingido
     end
   end
 

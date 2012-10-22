@@ -11,7 +11,9 @@ Home::Application.routes.draw do
   resources :servicos
 
   resources :reservas  do
+
     post "aprovar"
+    post "reprovar"
   end
 
   resources :arquivos

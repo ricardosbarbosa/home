@@ -91,10 +91,17 @@
                 </ul>
                 <ul class="nav pull-right">
                  <% if current_user.apartamento %>
-                 <li> <%= link_to current_user.email, edit_residencial_apartamento_user_path(current_user.apartamento.residencial,current_user.apartamento,current_user) if  (permitted_to? :edit, current_user) %>
+
+                      <li>
+                        <%= link_to  edit_residencial_apartamento_user_path(current_user.apartamento.residencial,current_user.apartamento,current_user) do %>
+                            Apto: <%= current_user.apartamento.numero %> -
+                            <%= current_user.email %>
+                      <% end if  (permitted_to? :edit, current_user) %>
+                      </li>
+
                  <% end %>
 
-                 </li>
+
                   <li class="active"><%= link_to "Sign out", destroy_user_session_path, :method => :delete %> </li>
 
                 </ul>
@@ -164,11 +171,17 @@
                         <li><%= link_to arquivos_path do %> <i class="icon-file" ></i><%= "Arquivos"%> <% end %></li>
                         <li><%= link_to reservas_path do %><i class="icon-hand-up" ></i><%= "Reservas" %>
                           <% if has_role? :sindico %>
-                          <span class="badge badge-warning">
-                            <%= current_user.apartamento.residencial.numero_de_reservas_aguardando_aprovacao  %>
-                          </span>
+                              <span class="badge badge-warning">
+                                <%= current_user.apartamento.residencial.numero_de_reservas_aguardando_aprovacao  %>
+                              </span>
+                          <% end %>
+                          <% if has_role? :condomino %>
+                              <span class="badge badge-warning">
+                                <%= current_user.apartamento.numero_de_reservas_aprovadas  %>
+                              </span>
                           <% end %>
                            <% end %>
+
                        </li>
                         <li><%= link_to residencial_vizinhos_path(current_user.apartamento.residencial) do %> <i class="icon-heart" ></i><%= "Vizinhos"%> <% end %></li>
                         <!-- <li><%= link_to servicos_path do %> <i class="icon-search" ></i><%= "Servicos"%> <% end %></li> -->

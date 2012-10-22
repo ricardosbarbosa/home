@@ -62,7 +62,7 @@ authorization do
         if_attribute :residencial_id => is { user.apartamento.residencial_id }
     end
 
-    has_permission_on [:reservas], :to => [:update, :edit ]
+    has_permission_on [:reservas], :to => [:aprovar, :update, :reprovar ]
 
     has_permission_on [:residenciais], :to => [ :convite ]   do
       if_attribute :residencial_id => is { user.apartamento.residencial_id }

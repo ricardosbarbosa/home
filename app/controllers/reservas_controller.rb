@@ -9,9 +9,15 @@ class ReservasController < ApplicationController
     @areas = current_user.apartamento.residencial.areas
 
     residencial = current_user.apartamento.residencial
+
     @reservas = Reserva.joins(:area => :residencial)
     .where(:residenciais => {:id => residencial.id})
+    .where("data > ?", Time.zone.now)
     .order('status, created_at')
+
+    #@reservas = Reserva.joins(:area => :residencial)
+    #.where(:residenciais => {:id => residencial.id})
+    #.order('status, created_at')
     #.group(:status)
 
     ##residencial = current_user.apartamento.residencial
@@ -100,7 +106,7 @@ class ReservasController < ApplicationController
         format.html { redirect_to @reserva, notice: 'Reserva foi atualiazada com sucesso.' }
         format.json { head :no_content }
 
-        UserMailer.reserva_atualizada(@reserva).deliver! if current_user.has_role? :sindico
+        #UserMailer.reserva_atualizada(@reserva).deliver! if current_user.has_role? :sindico
       else
         format.html { render action: "edit" }
         format.json { render json: @reserva.errors, status: :unprocessable_entity }
@@ -121,9 +127,43 @@ class ReservasController < ApplicationController
   end
 
   def aprovar
-    @reserva = Reserva.find(params[:id])
-    @reserva.status = "Aprovado"
-    @reserva.save({:validate=>false})
+    @areas = current_user.apartamento.residencial.areas
 
+    @reserva = Reserva.find(params[:reserva_id])
+    @reserva.status = "Aprovado"
+
+
+    respond_to do |format|
+      if @reserva.save({:validate=>true})
+        format.html { redirect_to :back, notice: 'Reserva foi aprovada com sucesso.' }
+        format.json { head :no_content }
+
+        UserMailer.reserva_atualizada(@reserva).deliver! if current_user.has_role? :sindico
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @reserva.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+
+  def reprovar
+    @areas = current_user.apartamento.residencial.areas
+
+    @reserva = Reserva.find(params[:reserva_id])
+    @reserva.status = "Rejeitado"
+
+
+    respond_to do |format|
+      if @reserva.save({:validate=>false})
+        format.html { redirect_to :back, notice: 'Reserva foi Rejeitado com sucesso.' }
+        format.json { head :no_content }
+
+        UserMailer.reserva_atualizada(@reserva).deliver! if current_user.has_role? :sindico
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @reserva.errors, status: :unprocessable_entity }
+      end
+    end
   end
 end

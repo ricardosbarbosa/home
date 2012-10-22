@@ -1,8 +1,17 @@
 
 
-<%= form_for @reserva, :action => :aprovar do |g| %>
+<% if has_role?:sindico and @reserva.id %>
+<%= form_for(@reserva, :url => reserva_aprovar_path(@reserva), :method => 'post', :html => {:style => 'float: left; margin-right: 10px'}) do |g| %>
 
     <%= g.submit "Aprovar", :class => 'btn btn-info btn-primary' %>
+
+<% end %>
+
+<%= form_for(@reserva, :url => reserva_reprovar_path(@reserva), :method => 'post') do |g| %>
+
+    <%= g.submit "Reprovar", :class => 'btn btn-warning btn-primary' %>
+
+<% end %>
 
 <% end %>
 
@@ -22,20 +31,22 @@
     <% end %>
 
     <%= form_for @reserva, :html => { :class => 'form-horizontal' } do |f| %>
-        <% if current_user.has_role? :sindico %>
-            <div class="control-group">
-              <%= f.label :status, :class => 'control-label' %>
-              <div class="controls">
-                <%= f.select :status, {"Aguardando Aprovação" => "Aguardando Aprovação", "Aprovado" => "Aprovado", "Rejeitado" => "Rejeitado"}%>
-              </div>
-            </div>
-        <% end %>
+        <!--<% if current_user.has_role? :sindico %>-->
+            <!--<div class="control-group">-->
+              <!--<%= f.label :status, :class => 'control-label' %>-->
+              <!--<div class="controls">-->
+                <!--<%= f.select :status, {"Aguardando Aprovação" => "Aguardando Aprovação", "Aprovado" => "Aprovado", "Rejeitado" => "Rejeitado"}%>-->
+              <!--</div>-->
+            <!--</div>-->
+        <!--<% end %>-->
 
 
       <div class="control-group">
         <%= f.label :area_id, :class => 'control-label' %>
         <div class="controls">
-          <%= f.select :area_id, @areas.map {|r| [r.nome,r.id] },{},  {:disabled=>(@reserva.user and not current_user.id.eql? @reserva.user.id)} %>
+          <%= f.select :area_id, @areas.map {|r| [r.nome,r.id] },{},
+            #:onchange =>remote_function(:url => {:action => :index, :id => 0 },:with => "'action='+ +this.options[this.selectedIndex].value")
+            {:disabled=>(@reserva.user and not current_user.id.eql? @reserva.user.id)}%>
 
         </div>
       </div>
