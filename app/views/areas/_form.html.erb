@@ -30,11 +30,25 @@
     </div>
 
     <div class="control-group">
-      <%= f.label :roles, :class => 'control-label' %>
+      <%= f.label :dias_para_reserva, :class => 'control-label' %>
       <div class="controls">
         <% Date::DAYNAMES.each do |dia| %>
             <div>
-              <%= check_box_tag :dias, dia, @area.dias_para_reserva.include?(dia), :name => 'area[dias_para_reserva][]' %> <%= label_tag :dias, dia %>
+              <%= check_box_tag :dias_para_reserva, dia, @area.dias_para_reserva.include?(dia), :name => 'area[dias_para_reserva][]',
+                                :style => 'float: left; margin-left: 5px' %> <%= label_tag :dias_para_reserva, dia %>
+            </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :turnos_permitidos, :class => 'control-label' %>
+      <div class="controls">
+        <% ['Manhã', 'Tarde', 'Noite'].each do |turno| %>
+            <div>
+              <%= check_box_tag :turno, turno, @area.turnos_permitidos.include?(turno), :name => 'area[turnos_permitidos][]',
+                                :style => 'float: left; margin-left: 5px' %>
+               <%= label_tag :turno, turno %>
             </div>
         <% end %>
       </div>

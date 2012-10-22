@@ -18,7 +18,7 @@ class Reserva < ActiveRecord::Base
 
   def validate_data_no_passado
     if data
-      errors.add(:data, "Reserva nao pode ser solicitada para o passado.") if data < DateTime.now
+      errors.add(:data, "Reserva nao pode ser solicitada para o passado.") if data < DateTime.now.to_date
     end
   end
 

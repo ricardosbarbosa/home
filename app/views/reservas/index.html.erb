@@ -16,12 +16,17 @@
     <%= link_to "Solicitar reserva",
                 new_reserva_path,
                 :class => 'btn btn-primary'  %>
+    <% if has_role?:sindico %>
+        <%= link_to "Cadastrar Nova Area",
+                    new_residencial_area_path(current_user.apartamento.residencial),
+                    :class => 'btn btn-primary' if permitted_to? :new, Area.new %>
+    <% end %>
 <table class="table table-striped">
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:status) %></th>
       <th><%= model_class.human_attribute_name(:area_id) %></th>
-      <th>Apartamento</th>
+      <% if has_role?:sindico %>  <th>Apartamento</th>                <% end %>
       <th>Solicitado para</th>
       <th>Solicitado em</th>
       <th><%=t '.actions', :default => 'Ações' %></th>
@@ -32,9 +37,9 @@
       <tr>
         <td style="text-align: center;"><i class="<%= reserva.status_icon %>"> </i></td>
         <td style="width: 100px;"><%= reserva.area.nome %></td>
-        <td style="text-align: center;"><%= reserva.user.apartamento.numero %></td>
+      <% if has_role?:sindico %>  <td style="text-align: center;"><%= reserva.user.apartamento.numero %></td>     <% end %>
         <td style="width: 150px;text-align: center;"><%=l reserva.data %></td>
-        <td style="width: 0px;"><%=l reserva.created_at %></td>
+        <td style="width: 150px;"><%=l reserva.created_at %></td>
         <td style="width: 200px;">
           <% if reserva.status.eql?'Aguardando Aprovação' and has_role?:sindico %>
               <%= form_for(reserva, :url => reserva_aprovar_path(reserva), :method => 'post', :html => {:style => 'float: left; margin: 0 3px 3px 0'}) do |g| %>
@@ -71,6 +76,8 @@ Não ha areas externas cadastradas para o residencial. <br />
 
 <% end %>
 
-<%= link_to "Cadastrar Nova Area",
-            new_residencial_area_path(current_user.apartamento.residencial),
-            :class => 'btn btn-primary' if permitted_to? :new, Area.new %>
+<% if has_role?:sindico %>
+    <%= link_to "Cadastrar Nova Area",
+                new_residencial_area_path(current_user.apartamento.residencial),
+                :class => 'btn btn-primary' if permitted_to? :new, Area.new %>
+<% end %>

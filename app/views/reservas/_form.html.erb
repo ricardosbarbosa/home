@@ -1,19 +1,17 @@
 
 
 <% if has_role?:sindico and @reserva.id %>
-<%= form_for(@reserva, :url => reserva_aprovar_path(@reserva), :method => 'post', :html => {:style => 'float: left; margin-right: 10px'}) do |g| %>
 
-    <%= g.submit "Aprovar", :class => 'btn btn-info btn-primary' %>
+    <%= form_for(@reserva, :url => reserva_aprovar_path(@reserva), :method => 'post', :html => {:style => 'float: left; margin-right: 10px'}) do |g| %>
+        <%= g.submit "Aprovar", :class => 'btn btn-info btn-primary' %>
+    <% end %>
 
-<% end %>
-
-<%= form_for(@reserva, :url => reserva_reprovar_path(@reserva), :method => 'post') do |g| %>
-
-    <%= g.submit "Reprovar", :class => 'btn btn-warning btn-primary' %>
-
-<% end %>
+    <%= form_for(@reserva, :url => reserva_reprovar_path(@reserva), :method => 'post') do |g| %>
+        <%= g.submit "Reprovar", :class => 'btn btn-warning btn-primary' %>
+    <% end %>
 
 <% end %>
+
 
 
 
@@ -110,10 +108,11 @@
 <% else %>
     Não ha areas externas cadastradas para o residencial. <br />
 
-    <%= link_to "Cadastrar Nova Area",
-                new_residencial_area_path(current_user.apartamento.residencial),
-                :class => 'btn btn-primary' if permitted_to? :new, Area.new %>
-
+    <% if has_role?:sindico %>
+        <%= link_to "Cadastrar Nova Area",
+                    new_residencial_area_path(current_user.apartamento.residencial),
+                    :class => 'btn btn-primary' if permitted_to? :new, Area.new %>
+    <% end %>
 <% end %>
 
 

@@ -46,14 +46,9 @@ class ResidenciaisController < ApplicationController
     if params[:residencial_nome]
       @residencial = Residencial.new
       @residencial.nome = params[:residencial_nome]
-
-
     else
       @residencial = Residencial.new(params[:residencial])
     end
-
-
-
 
     respond_to do |format|
       if @residencial.save
@@ -74,7 +69,9 @@ class ResidenciaisController < ApplicationController
             password << (0...4).map{ (0..9).to_a[rand(10)] }.join
             @sindico.password =  password
 
-            @sindico.save
+            if @sindico.save
+              UserMailer.welcome_email(@sindico, password).deliver!
+            end
           end
 
         end
@@ -163,6 +160,7 @@ class ResidenciaisController < ApplicationController
           if @condomino.save
             format.html { redirect_to :back, notice: 'Convite realizado com sucesso.' }
             format.json { head :no_content }
+            UserMailer.welcome_email(@condomino, password).deliver!
           else
             format.html { redirect_to :back }
             format.json { render json: @condomino.errors, status: :unprocessable_entity }
