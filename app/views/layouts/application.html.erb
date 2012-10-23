@@ -195,10 +195,14 @@
 
                         <li>
                           <%= link_to residencial_convite_path(current_user.apartamento.residencial) do %>
-                              <i class="icon-heart" ></i><%= "Convite" %>
+                              <i class="icon-comment" ></i><%= "Convite" %>
                           <% end  if has_role? :sindico  %>
                         </li>
 
+
+                        <li><%= link_to  residencial_areas_path(current_user.apartamento.residencial) do %>
+                              <i class="icon-th-list" ></i><%= "Áreas do condomínio" %> <% end if permitted_to? :edit, current_user %>
+                        </li>
 
                         <li><%= link_to  edit_user_registration_path do %>
                               <i class="icon-refresh" ></i><%= "Alterar Senha" %> <% end %>
