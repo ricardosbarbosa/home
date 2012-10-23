@@ -2,6 +2,11 @@
 require 'date'
 
 class Reserva < ActiveRecord::Base
+
+  scope :aprovadas, lambda { |area| where("data > ?", Time.zone.now).where(:status => 'Aprovado').where('area_id = ?', area).order('status, created_at') }
+  scope :aguardando, lambda { |area| where("data > ?", Time.zone.now).where('status != ?', 'Aprovado').where('area_id = ?', area).order('status, created_at') }
+
+
   validate :validate_dia_nao_permitido
   validate :validate_data_no_passado
   validate :validate_numero_maximo_de_reserva_para_a_data
