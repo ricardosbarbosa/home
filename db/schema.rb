@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(:version => 20121022124801) do
     t.integer  "residencial_id"
     t.datetime "created_at",                                                   :null => false
     t.datetime "updated_at",                                                   :null => false
-    t.integer  "numero_maximo_de_reservas"
+    t.integer  "numero_maximo_de_reservas", :default => 1
     t.string   "dias_para_reserva",         :default => ""
     t.string   "turnos_permitidos",         :default => "Manhã, Tarde, Noite"
   end
