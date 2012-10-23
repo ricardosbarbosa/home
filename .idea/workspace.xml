@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a74e05da-fc85-489f-95be-d75e4c09bc69" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/reservas_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/reservas_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/reserva.rb" afterPath="$PROJECT_DIR$/app/models/reserva.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/reservas/index.html.erb" afterPath="$PROJECT_DIR$/app/views/reservas/index.html.erb" />
-    </list>
+    <list default="true" id="a74e05da-fc85-489f-95be-d75e4c09bc69" name="Default" comment="" />
     <ignored path="home.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
