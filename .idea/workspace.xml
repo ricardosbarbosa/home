@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a74e05da-fc85-489f-95be-d75e4c09bc69" name="Default" comment="" />
+    <list default="true" id="a74e05da-fc85-489f-95be-d75e4c09bc69" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/reserva.rb" afterPath="$PROJECT_DIR$/app/models/reserva.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/reservas/index.html.erb" afterPath="$PROJECT_DIR$/app/views/reservas/index.html.erb" />
+    </list>
     <ignored path="home.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,10 +22,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="reserva.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="reserva.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/reserva.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="100" selection-start="325" selection-end="325" vertical-scroll-proportion="0.0">
+            <state line="6" column="51" selection-start="285" selection-end="285" vertical-scroll-proportion="0.12711865">
               <folding />
             </state>
           </provider>
@@ -55,15 +58,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/reservas/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="158" column="71" selection-start="6490" selection-end="6490" vertical-scroll-proportion="0.2134503">
+            <state line="224" column="6" selection-start="9819" selection-end="9819" vertical-scroll-proportion="-9.690909">
               <folding>
                 <element signature="n#style#0;n#i#0;n#div#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#i#1;n#div#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#i#2;n#div#1;n#!!top" expanded="true" />
-                <element signature="e#876#2852#0" expanded="false" />
                 <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
@@ -91,7 +93,7 @@
       <file leaf-file-name="_form.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/reservas/_form.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="68" column="6" selection-start="2418" selection-end="2574" vertical-scroll-proportion="-2.875">
+            <state line="17" column="0" selection-start="487" selection-end="539" vertical-scroll-proportion="-10.625">
               <folding />
             </state>
           </provider>
@@ -151,8 +153,8 @@
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/models/evento.rb" />
         <option value="$PROJECT_DIR$/app/controllers/reservas_controller.rb" />
-        <option value="$PROJECT_DIR$/app/models/reserva.rb" />
         <option value="$PROJECT_DIR$/app/views/reservas/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/models/reserva.rb" />
       </list>
     </option>
   </component>
@@ -540,13 +542,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/reservas/_form.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="6" selection-start="2418" selection-end="2574" vertical-scroll-proportion="-2.875">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/reservas_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="88" column="39" selection-start="2674" selection-end="2674" vertical-scroll-proportion="0.0">
@@ -554,21 +549,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/reserva.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/reservas/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="100" selection-start="325" selection-end="325" vertical-scroll-proportion="0.0">
+        <state line="17" column="0" selection-start="487" selection-end="539" vertical-scroll-proportion="-10.625">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/reservas/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="158" column="71" selection-start="6490" selection-end="6490" vertical-scroll-proportion="0.2134503">
+        <state line="224" column="6" selection-start="9819" selection-end="9819" vertical-scroll-proportion="-9.690909">
           <folding>
             <element signature="n#style#0;n#i#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#i#1;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#i#2;n#div#1;n#!!top" expanded="true" />
-            <element signature="e#876#2852#0" expanded="false" />
             <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
@@ -580,6 +574,13 @@
             <element signature="n#style#0;n#td#3;n#tr#0;n#tbody#0;n#table#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#4;n#tr#0;n#tbody#0;n#table#1;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/reserva.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="51" selection-start="285" selection-end="285" vertical-scroll-proportion="0.12711865">
+          <folding />
         </state>
       </provider>
     </entry>
