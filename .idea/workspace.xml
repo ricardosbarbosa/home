@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a74e05da-fc85-489f-95be-d75e4c09bc69" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/welcome/index.html.erb" afterPath="$PROJECT_DIR$/app/views/welcome/index.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/welcome/index_topicos.html.erb" afterPath="$PROJECT_DIR$/app/views/welcome/index_topicos.html.erb" />
     </list>
     <ignored path="home.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -57,10 +58,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="application.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="215" column="0" selection-start="9955" selection-end="9955" vertical-scroll-proportion="0.3338633">
+            <state line="218" column="41" selection-start="10032" selection-end="10032" vertical-scroll-proportion="-4.6363635">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index_topicos.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/welcome/index_topicos.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="13" selection-start="786" selection-end="786" vertical-scroll-proportion="-2.709091">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/welcome/index.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="28" column="86" selection-start="1252" selection-end="1252" vertical-scroll-proportion="0.577812">
               <folding />
             </state>
           </provider>
@@ -79,15 +98,6 @@
         <entry file="file://$PROJECT_DIR$/db/migrate/20121011175236_add_alguns_index.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="reservas_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/reservas_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="88" column="39" selection-start="2674" selection-end="2674" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -116,15 +126,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_form.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/reservas/_form.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="0" selection-start="487" selection-end="539" vertical-scroll-proportion="-10.625">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindManager">
@@ -138,8 +139,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/models/apartamento.rb" />
-        <option value="$PROJECT_DIR$/db/migrate/20121022124801_add_turnos_permitidos_to_areas.rb" />
         <option value="$PROJECT_DIR$/app/views/areas/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/reservas/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/models/area.rb" />
@@ -154,6 +153,8 @@
         <option value="$PROJECT_DIR$/app/models/reserva.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20121019175702_add_numero_maximo_de_reserva_to_areas.rb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/welcome/index_topicos.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/welcome/index.html.erb" />
       </list>
     </option>
   </component>
@@ -236,6 +237,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="migrate" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="welcome" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -455,20 +478,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/models/evento.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="33" selection-start="303" selection-end="303" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/area.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="42" selection-start="237" selection-end="237" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/devise/registrations/edit.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="26" column="33" selection-start="1064" selection-end="1064" vertical-scroll-proportion="0.0">
@@ -576,7 +585,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="215" column="0" selection-start="9955" selection-end="9955" vertical-scroll-proportion="0.3338633">
+        <state line="218" column="41" selection-start="10032" selection-end="10032" vertical-scroll-proportion="-4.6363635">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/welcome/index_topicos.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="13" selection-start="786" selection-end="786" vertical-scroll-proportion="-2.709091">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/welcome/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="86" selection-start="1252" selection-end="1252" vertical-scroll-proportion="0.577812">
           <folding />
         </state>
       </provider>
