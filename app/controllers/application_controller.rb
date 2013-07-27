@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
       residencial = current_user.apartamento.residencial
       @usuarios ||= User.joins(:apartamento => :residencial)
       .where(:residenciais => {:id => residencial.id})
-      .order(:apartamentos => :id)
+      # .order(:apartamentos => {:id})
     end
   end
 
