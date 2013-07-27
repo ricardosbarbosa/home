@@ -72,7 +72,7 @@ Home::Application.configure do
       :address              => "smtp.gmail.com",
       :port                 => 587,
       :domain               => 'google.com',
-      :user_name            => 'nao.responda.oivizinho@gmail.com',
+      :user_name            => 'rbrico@gmail.com',
       :password             => 'R!caRd0!93s',
       :authentication       => 'plain',
       :enable_starttls_auto => true  }
