@@ -112,7 +112,7 @@ class ResidenciaisController < ApplicationController
   end
 
   def vizinhos
-    dias_para_reserva@roles = Role.where('nome != ? ', :admin)
+    @roles = Role.where('nome != ? ', :admin)
     @residencial = current_user.apartamento.residencial
     #@residencial = Residencial.find(params[:residencial_id])
     @vizinhos = User.
