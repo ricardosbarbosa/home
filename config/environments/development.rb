@@ -43,7 +43,7 @@ Home::Application.configure do
       :port                 => 587,
       :domain               => 'google.com',
       :user_name            => 'rbrico@gmail.com',
-      :password             => 'Rico1985',
+      :password             => 'R!caRd0!93s',
       :authentication       => 'plain',
       :enable_starttls_auto => true  }
 end

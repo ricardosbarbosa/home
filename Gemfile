@@ -1,11 +1,12 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.6'
+gem 'rails', '3.2.13'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2'
+# gem 'mysql2'
+gem 'sqlite3'
 
 gem 'devise'
 gem "declarative_authorization"
@@ -20,12 +21,13 @@ gem 'simple-private-messages', '0.0.0', :git => 'git://github.com/jongilbraith/s
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.4'
-  gem 'coffee-rails', '~> 3.2.2'
-  gem 'libv8', '~> 3.3.10'
+  gem 'sass-rails',   '~> 3.2.3'
+  gem 'coffee-rails', '~> 3.2.1'
+  gem 'libv8', '~> 3.11.8'
+  gem "less-rails"
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  gem 'therubyracer', :platforms => :ruby
+  gem 'therubyracer'#, :platforms => :ruby
 
   gem "paperclip", :git => "http://github.com/thoughtbot/paperclip.git"
   gem 'uglifier', '>= 1.0.3'
