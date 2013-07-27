@@ -6,7 +6,14 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 # gem 'mysql2'
-gem 'sqlite3'
+
+group :production do
+  gem "pg"
+end
+
+group :development, :test do
+  gem "sqlite3"
+end
 
 gem 'devise'
 gem "declarative_authorization"
