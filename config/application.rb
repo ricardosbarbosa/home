@@ -62,5 +62,7 @@ module Home
     config.assets.version = '1.0'
 
     Paperclip::Railtie.insert
+
+    config.assets.initialize_on_precompile = false
   end
 end
